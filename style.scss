@@ -70,7 +70,7 @@ h4 {
 }
 
 p {
-  margin: 12px 0;
+  margin: 6px 0;
 }
 
 a {
@@ -216,10 +216,10 @@ img {
 }
 
 nav {
-  float: right;
+  float: left;
   margin-top: 23px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
-  font-size: 13px;
+  font-size: 14px;
 
   @include mobile {
     float: none;
