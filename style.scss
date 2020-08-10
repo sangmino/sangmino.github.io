@@ -222,7 +222,7 @@ nav {
   font-size: 14px;
 
   @include mobile {
-    float: none;
+    float: left;
     margin-top: 9px;
     display: block;
     font-size: 16px;
@@ -231,9 +231,9 @@ nav {
   a {
     margin-left: 0px;
     color: $darkGray;
-    text-align: right;
+    text-align: left;
     font-weight: 300;
-    letter-spacing: 1px;
+    letter-spacing: 20px;
 
     @include mobile {
       margin: 0 10px;
