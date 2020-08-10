@@ -33,14 +33,14 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: $helveticaNeue;
   color: $darkerGray;
-  font-weight: normal;
+  font-weight: 300;
 
-  line-height: 1.2;
+  line-height: 1.5;
   margin: 1em 0 15px;
   padding: 0;
 
   @include mobile {
-    line-height: 1.2;
+    line-height: 1.5;
   }
 }
 
@@ -214,7 +214,7 @@ nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
   font-family: $helveticaNeue;
-  font-size: 14px;
+  font-size: 13px;
 
   @include mobile {
     float: none;
