@@ -4,12 +4,9 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+PhD Student in the Joint Program in Financial Economics
 
-### More Information
+The University of Chicago
+Booth School of Business
 
-A place to include any other types of information that you'd like to include about yourself.
-
-### Contact me
-
-[email@domain.com](mailto:email@domain.com)
+I run a daily listserv called plausibly exogenous. You can sign up [here](https://forms.gle/9rKJU1fQNq7HYq1f8).
