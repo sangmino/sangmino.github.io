@@ -233,13 +233,17 @@ nav {
     color: $darkGray;
     text-align: left;
     font-weight: 300;
-    letter-spacing: 20px;
+    letter-spacing: 1px;
 
     @include mobile {
       margin: 0 10px;
       color: #800000;
     }
   }
+}
+
+.nav-left {
+  float: left;
 }
 
 //
