@@ -24,6 +24,18 @@ body {
   color: $darkGray;
 }
 
+.column {
+    float: left;
+    width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1000px;
