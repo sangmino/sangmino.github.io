@@ -7,11 +7,20 @@ layout: default
 <body>
 <base href="/">
 
-<h5><b>Here is my <a href="data/Kim_CV_2021June17.pdf" title="CV">CV</a> (ver. June 17, 2021)</b></h5>
+<style type="text/css">
+span {
+  display:inline-block;
+  text-indent:25px;
+}
+</style>
+
+<p><b>Here is my <a href="data/Kim_CV_2021June17.pdf" title="CV">CV</a> (ver. June 17, 2021)</b></p>
 
 <p><br></p>
-<h5>How to pronounce 'Sanghee' [saŋhi]</h5>
-  <!-- <a href="data/sanghee_eng.m4a">English version</a> | <a href="data/sanghee.m4a">Korean version</a></p> -->
+<p>How to pronounce 'Sanghee' [saŋhi]:</p>
+  <a href="data/sanghee_eng.m4a">English version</a> | <a href="data/sanghee.m4a">Korean version</a>
+
+<!-- <span>
 <figure>
     <figcaption>Korean version</figcaption>
     <audio
@@ -29,6 +38,15 @@ layout: default
             Your browser does not support the audio element.
     </audio>
 </figure>
+</span> -->
+
+<audio id="english" src="data/sanghee_eng.m4a"></audio>
+<div>
+    <!-- <a href="cv/" onclick="document.getElementById('english').play()">English</a> -->
+    <a href="cv/" onclick="play('english');">English</a>
+</div>
+
+<i class="fa fa-play" style="color:#9400d3;"></i>
 
 </body>
 </html>
