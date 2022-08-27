@@ -5,42 +5,107 @@ layout: default
 <!DOCTYPE html>
 <html>
 <head>
- 
-<meta charset="utf-8">
-
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 * {
   box-sizing: border-box;
 }
 
+/* Create two unequal columns that floats next to each other */
 .column {
   float: left;
-  width: 33.33%;
   padding: 10px;
 }
 
-/* Clearfix (clear floats) */
-.row::after {
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 75%;
+}
+
+/* Clear floats after the columns */
+.row:after {
   content: "";
-  clear: both;
   display: table;
+  clear: both;
 }
 </style>
 </head>
 <body>
 
-<h2>Images Side by Side</h2>
-<p>How to create side-by-side images with the CSS float property:</p>
-
 <div class="row">
-  <div class="column">
-    <p><img src="images/firmino.jpg" width="100%"></p>
+  <div class="column left">
+      <p><img src="images/firmino.jpg" width="100%"></p>
   </div>
-  <div class="column">
-    <p><img src="images/firmino.jpg" width="100%"></p>
-  </div>
-  <div class="column">
-    <p><img src="images/firmino.jpg" width="100%"></p>
+  <div class="column right" >
+   <style>
+div {
+  text-align: justify;
+  text-justify: inter-word;
+}
+</style>
+    <p>
+Welcome to my website!  I am a PhD candidate in Economics at the <a href=https://sceco.umontreal.ca/english/home/">University of Montreal</a>. 
+   </p>
+   <br>
+    <p>
+   My research interests include   <span style="color:rgb(16, 141, 193)">Econometrics, Big Data, Machine Learning/Textual Analysis (NLP), Causal Inference,  and Climate Finance</span>. I am also interested in applying Artificial Intelligence methods to answer macro-finance, and climate finance questions.
+    </p>
+
+    <br>
+   <p>
+  I hold a Msc. in Statistics and Economics and worked as economist at the IMF and World Bank.
+    </p>
+    <!-- 
+  <p>
+My research focuses on factor analysis in high-dimensional datasets and large panel models with interactive fixed effects. I am also interested in applying Machine Learning (ML) and Natural Language Processing (NLP) methods to answer macro-finance, and climate finance questions.  
+ </p> 
+  
+  <br>
+   <!-- 
+  <p>
+During the summer of 2021, I joined the <a href="https://www.imf.org/en/Home">International Monetary Fund</a> as a PhD intern in the Fund Internship Program (FIP). I was an Economist consultant at the Observatory of the Economic Francophonie during the fall of 2020. I also previously worked as an Economist in the IMF’s Senegal Country Desk and the Macroeconomics Trade Investment (MTI) of the <a href="https://www.worldbank.org/en/home">World Bank</a>. 
+  </p> 
+  
+  <br>
+  
+  
+  <p>
+  Prior to this, I hold a master’s degree in Statistics and Economics from ENSAE.
+  </p>
+ 
+     <br>
+  <h4 style="color:rgb(16, 141, 193);"> Recent and Upcoming Talks: </h4>
+     <ui>
+      <li> International Association for Applied Econometrics (IAAE) </li>  
+      <li> Annual Meetings of the Canadian Economics Association (CEA) </li> 
+      <li> Société canadienne de science économique (SCSE)</li>
+ 
+     </ui>
+  . My teaching interests are econometrics, machine learning, big data methods, climate finance, and open-source programming (i.e., R/Python)
+ 
+  <br>
+   -->  
+   <br>
+  <p> Please see my<a href = "/Documents/cv2022-08-public.pdf"> CV</a> for more details.</p> 
+
+   <br>
+   <br>
+
+     <h3 style="color:rgb(16, 141, 193)"> Contacts:</h3>
+    <div class="row g-5 mb-5">
+      <div class="col-md-6">
+      <p>Email: <a href="mailto:firmin.ayivodji@umontreal.ca">firmin.ayivodji@umontreal.ca</a></p>
+        <p>Phone: (514) 343-6111 #37386 </p>
+        <p>Office: Office: Lionel-Groulx Building, Office C-6070-10</p>
+         <p>3150 Jean brillant, Université de Montréal</p>
+           <p>Montréal, Québec, H3T 1N8, Canada.</p>
+      </div>
+          </div>
+  
+  </div>   
   </div>
 </div>
 
