@@ -26,6 +26,19 @@ layout: default
   clear: both;
   display: table;
 }
+	
+figure {
+  display: inline-block;
+  text-align: center;
+  border: 1px dotted gray;
+  margin: 5px; /* adjust as needed */
+}
+figure img {
+  vertical-align: top;
+}
+figure figcaption {
+  border: 1px dotted blue;
+}
 </style>
 </head>
 <body>
@@ -36,10 +49,10 @@ layout: default
 	 improve forecasts of macroeconomic variables, including GDP, inflation, housing prices, and unemployment. Such indices are extracted from approximately 2 million articles from major Canadian newspapers including
 	 the National Post, Calgary Herald, Edmonton Journal, Montreal Gazette, Ottawa Citizen, Regina Leader-Post, The Globe and Mail, Vancouver Sun, 
 	 and the Victoria Times-Colonist. </p>
-
+ <br>
 <div class="row">
  <figure role="group">
-    <figcaption> Overview of some topics detected using the Latent Dirichlet Allocation </figcaption>
+    <figcaption> <b>Overview of some topics detected using the Latent Dirichlet Allocation </b></figcaption>
  <div class="column">
    <figure>
     <p><img src="../images/color_6.png" width="100%"></p>
