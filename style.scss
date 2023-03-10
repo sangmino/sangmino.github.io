@@ -88,11 +88,11 @@ p {
 }
 
 a {
-  color: #001C54;
+  color: #4169e1;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: #001C54;
+    color: #4169e1;
   }
 }
 
@@ -256,7 +256,7 @@ nav {
     float: left;
     @include mobile {
       margin: 0 10px;
-      color: #001C54;
+      color: #4169e1;
     }
   }
 }
