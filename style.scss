@@ -307,6 +307,15 @@ footer {
   text-align: center;
 }
 
+.dropdown-content .description {
+  display: none;
+  padding: 10px;
+}
+
+.dropdown-content a:hover + .description {
+  display: block;
+}
+
 // Settled on moving the import of syntax highlighting to the bottom of the CSS
 // ... Otherwise it really bloats up the top of the CSS file and makes it difficult to find the start
 @import "highlights";
