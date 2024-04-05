@@ -1,0 +1,16 @@
+---
+layout: default
+---
+<h2> Intuitions </h2>
+
+<h4>Estimating Moments</h4>
+If you have a random walk (e.g. stock returns), you can estimate its variance more accurately by sampling more frequently, but not its mean.
+<ul>
+  <li>Say, you know where the process is at times 0 and 1. Would knowing an intermediate value help in estimating its drift and variance? (i) For drift - no. This is because whatever intermediate value you observe, it’s going to be simultaneously good news and bad news about the drift, and they will offset each other. Eg a super high intermediate value simultaneously signals a high drift (the process increased a lot in the 1st half) and a low drift (it decreased a lot in the 2nd half). (ii) Whereas for variance any news about the intermediate value are unequivocal - the higher the deviation the higher the variance.</li>
+  <li>If you observe during interval [0,1] a sufficient statistics for the drift is x(1)-x(0) ? sampling in between is useless. (This explains why sampling more doesn't help with estimating the mean)</li>
+</ul>
+
+<h4>Stambaugh Bias</h4>
+<ul>
+  <li>(i) Imagine you're trying to predict stock returns using a variable like the dividend yield. You run a regression and find a positive relation - high yields predict high future returns. But there's a problem: the dividend yield itself is affected by past returns (a high return raises stock prices and lowers the yield). (ii) So when you have a high yield, it partly just reflects low past returns. Since returns are negatively correlated over short horizons (due to bid-ask bounce and illiquidity), those low past returns mechanically imply higher future returns. (iii) As a result, your regression coefficient is biased upwards - it's too optimistic about the yield's predictive power.</li>
+</ul>
