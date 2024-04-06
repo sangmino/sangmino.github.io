@@ -11,6 +11,13 @@ If you have a random walk (e.g. stock returns), you can estimate its variance mo
 </ul>
 
 <h4>Stambaugh Bias</h4>
+Typical lagged explanatory variables for stock-return regressions are correlated with contemporaneous stock returns, and this contemporaneous correlation biases forecasting regressions.
 <ul>
   <li>(i) Imagine you're trying to predict stock returns using a variable like the dividend yield. You run a regression and find a positive relation - high yields predict high future returns. But there's a problem: the dividend yield itself is affected by past returns (a high return raises stock prices and lowers the yield). (ii) So when you have a high yield, it partly just reflects low past returns. Since returns are negatively correlated over short horizons (due to bid-ask bounce and illiquidity), those low past returns mechanically imply higher future returns. (iii) As a result, your regression coefficient is biased upwards - it's too optimistic about the yield's predictive power.</li>
+</ul>
+
+<h4>Quadratic Variation</h4>
+An intriguing property of Brownian motion is its quadratic variation. Over any fixed interval, the sum of the squared returns (with increasingly finer sampling) converges to the total variance of the process over that interval.
+<ul>
+  <li>If you were to track the path of stock prices very closely, squaring and summing the tiny movements you observe, you're essentially measuring the path's "roughness." This "roughness" or quadratic variation gives you a direct measure of the market's volatility over the period, a concept that is abstract in discrete time but very tangible in continuous time.</li>
 </ul>
