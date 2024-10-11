@@ -92,11 +92,11 @@ p.big {
 }
 
 a {
-  color: #189CC4;
+  color: #21758f;
   text-decoration: none;
 	cursor: pointer;
   &:hover, &:active {
-    color: #189CC4;
+    color: #21758f;
   }
 }
 
@@ -261,7 +261,7 @@ nav {
     float: left;
     @include mobile {
       margin: 0 10px;
-      color: #189CC4;
+      color: #21758f;
     }
   }
 }
