@@ -74,8 +74,9 @@
 
     /* Tabs */
     .tabs-container {
-      background: var(--surface);
+      background: var(--card);
       border-bottom: 1px solid var(--border);
+      padding: 1rem 0;
     }
 
     .tabs {
@@ -83,36 +84,43 @@
       margin: 0 auto;
       padding: 0 1.5rem;
       display: flex;
-      gap: 0;
+      gap: 0.5rem;
     }
 
     .tab {
-      padding: 1rem 1.5rem;
+      padding: 0.625rem 1.25rem;
       font-size: 0.9rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--muted);
       cursor: pointer;
       border: none;
       background: none;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
+      border-radius: 8px;
       transition: all 0.15s ease;
     }
 
     .tab:hover {
       color: var(--foreground);
+      background: rgba(111, 127, 153, 0.1);
     }
 
     .tab.active {
-      color: var(--foreground);
-      background: var(--card);
-      border-bottom-color: var(--brand-primary);
+      color: #FFFFFF;
+      background: var(--brand-primary);
     }
 
     .tab .soon {
-      font-size: 0.75rem;
-      color: var(--muted);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.7);
+      background: rgba(255, 255, 255, 0.2);
+      padding: 0.125rem 0.375rem;
+      border-radius: 4px;
       margin-left: 0.5rem;
+    }
+
+    .tab:not(.active) .soon {
+      color: var(--muted);
+      background: rgba(111, 127, 153, 0.15);
     }
 
     main {
@@ -270,7 +278,7 @@
   <header class="header">
     <div class="header-content">
       <h1>Aperitivo Archive</h1>
-      <p><a href="https://courses.business.columbia.edu/B8306">Capital Markets & Investments</a> at Columbia Business School<br>Simon Oh</p>
+      <p><a href="https://courses.business.columbia.edu/B8306">Capital Markets & Investments</a> at Columbia Business School<br>Simon Oh | <a href="mailto:oh@gsb.columbia.edu">oh@gsb.columbia.edu</a></p>
     </div>
   </header>
 
@@ -278,6 +286,7 @@
     <div class="tabs">
       <button class="tab active" data-semester="spring2025">Spring 2025</button>
       <button class="tab" data-semester="spring2026">Spring 2026</button>
+      <button class="tab" data-semester="resources">Resources</button>
     </div>
   </div>
 
@@ -447,6 +456,45 @@
         <h2>Coming Soon</h2>
         <p>Aperitivo slides for Spring 2026 will be posted here as the course progresses.</p>
       </div>
+    </div>
+
+    <!-- Resources -->
+    <div id="resources" class="semester-content">
+      <div class="intro">
+        Additional resources to deepen your understanding of capital markets and investments.
+      </div>
+
+      <section class="module">
+        <div class="module-header">
+          <h2>Weekly Reading</h2>
+        </div>
+        <div class="cards">
+          <a href="https://price-and-prejudice.ghost.io/" class="card" target="_blank">
+            <div class="card-title">📰 Price and Prejudice</div>
+            <div class="card-desc">Weekly article round-up covering markets, investing, and economics. Grew out of this course.</div>
+          </a>
+        </div>
+      </section>
+
+      <section class="module">
+        <div class="module-header">
+          <h2>AI Podcasts</h2>
+        </div>
+        <div class="cards">
+          <a href="https://open.spotify.com/show/4lp19l7JWScoDUJaKLZAY1" class="card" target="_blank">
+            <div class="card-title">📄 Research Papers</div>
+            <div class="card-desc">AI-generated discussions of recent finance research papers.</div>
+          </a>
+          <a href="https://open.spotify.com/show/3mWRRifkuQhbPAkhhSwivV" class="card" target="_blank">
+            <div class="card-title">📚 Core Frameworks</div>
+            <div class="card-desc">Core ideas and frameworks in finance, explained through AI conversation.</div>
+          </a>
+          <a href="https://open.spotify.com/show/3Pc0O0hIUkRg3LZzoeGmyJ" class="card" target="_blank">
+            <div class="card-title">🏢 Overlooked Companies</div>
+            <div class="card-desc">Stories behind interesting but overlooked companies.</div>
+          </a>
+        </div>
+      </section>
     </div>
   </main>
 
