@@ -44,7 +44,7 @@
     }
 
     .header-content {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 4rem 1.5rem 3rem;
     }
@@ -73,7 +73,7 @@
     }
 
     main {
-      max-width: 900px;
+      max-width: 1100px;
       margin: 0 auto;
       padding: 3rem 1.5rem 4rem;
     }
@@ -99,74 +99,67 @@
     }
 
     .module-header {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
       margin-bottom: 1rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 1px solid var(--border);
     }
 
     .module-header h2 {
-      font-size: 1.25rem;
-      font-weight: 500;
+      font-size: 1.125rem;
+      font-weight: 600;
       color: var(--foreground);
     }
 
-    .module-count {
-      font-size: 0.75rem;
-      font-weight: 500;
-      color: var(--brand-primary);
-      background: var(--surface);
-      padding: 0.25rem 0.5rem;
-      border-radius: 4px;
-    }
-
-    .sessions {
+    .cards {
       display: grid;
-      gap: 0.75rem;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1rem;
     }
 
-    .session {
-      display: flex;
-      align-items: center;
+    .card {
+      display: block;
       background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      padding: 1rem 1.25rem;
+      border: 2px solid rgba(111, 127, 153, 0.2);
+      border-radius: 8px;
+      padding: 1.25rem;
       text-decoration: none;
       color: inherit;
       transition: all 0.15s ease;
+      position: relative;
     }
 
-    .session:hover {
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--brand-primary);
+      border-radius: 8px 8px 0 0;
+    }
+
+    .card:hover {
       border-color: var(--brand-primary);
-      box-shadow: 0 2px 8px rgba(111, 127, 153, 0.1);
+      box-shadow: 0 4px 12px rgba(111, 127, 153, 0.15);
     }
 
-    .session-number {
-      font-family: 'Newsreader', Georgia, serif;
-      font-size: 0.875rem;
-      font-weight: 500;
-      color: var(--brand-primary);
-      min-width: 3.5rem;
-    }
-
-    .session-title {
-      flex: 1;
+    .card-title {
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 600;
       color: var(--foreground);
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .session-icon {
+    .card:hover .card-title {
+      color: var(--brand-primary);
+    }
+
+    .card-desc {
+      font-size: 0.875rem;
       color: var(--muted);
-      opacity: 0;
-      transition: opacity 0.15s ease;
-    }
-
-    .session:hover .session-icon {
-      opacity: 1;
+      line-height: 1.5;
     }
 
     footer {
@@ -203,12 +196,8 @@
         padding: 2rem 1rem 3rem;
       }
 
-      .session {
-        padding: 0.875rem 1rem;
-      }
-
-      .session-number {
-        min-width: 3rem;
+      .cards {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -228,182 +217,152 @@
 
     <section class="module">
       <div class="module-header">
-        <h2>Markets</h2>
-        <span class="module-count">2 sessions</span>
+        <h2>Topic 1: Markets</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 02 - Markets 2 - KKR.pdf" class="session">
-          <span class="session-number">02</span>
-          <span class="session-title">KKR</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 02 - Markets 2 - KKR.pdf" class="card">
+          <div class="card-title">KKR</div>
+          <div class="card-desc">How KKR's IPO of its balance sheet reveals the hidden value in private equity firms' own investments.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 03 - Markets 3 - Learning from Trades.pdf" class="session">
-          <span class="session-number">03</span>
-          <span class="session-title">Learning from Trades</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 03 - Markets 3 - Learning from Trades.pdf" class="card">
+          <div class="card-title">Learning from Trades</div>
+          <div class="card-desc">What market microstructure tells us about information revelation and price discovery in financial markets.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>Fixed Income</h2>
-        <span class="module-count">6 sessions</span>
+        <h2>Topic 2: Fixed Income</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 04 - Fixed Income 1 - Grossman-Stiglitz and Pierre Yared.pdf" class="session">
-          <span class="session-number">04</span>
-          <span class="session-title">Grossman-Stiglitz and Pierre Yared</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 04 - Fixed Income 1 - Grossman-Stiglitz and Pierre Yared.pdf" class="card">
+          <div class="card-title">Grossman-Stiglitz and Pierre Yared</div>
+          <div class="card-desc">The paradox of informationally efficient markets and a conversation with Columbia's Pierre Yared on sovereign debt.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 05 - Fixed Income 2 - Financing the Sports Business.pdf" class="session">
-          <span class="session-number">05</span>
-          <span class="session-title">Financing the Sports Business</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 05 - Fixed Income 2 - Financing the Sports Business.pdf" class="card">
+          <div class="card-title">Financing the Sports Business</div>
+          <div class="card-desc">How professional sports teams and leagues use debt markets, from stadium bonds to media rights securitization.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 06 - Fixed Income 3 - Tax Revenue as Long Duration Asset.pdf" class="session">
-          <span class="session-number">06</span>
-          <span class="session-title">Tax Revenue as Long Duration Asset</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 06 - Fixed Income 3 - Tax Revenue as Long Duration Asset.pdf" class="card">
+          <div class="card-title">Tax Revenue as Long Duration Asset</div>
+          <div class="card-desc">Thinking about government tax revenue streams through the lens of duration and interest rate sensitivity.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 07 - Fixed Income 4 - Interest Rates and Wealth Inequality.pdf" class="session">
-          <span class="session-number">07</span>
-          <span class="session-title">Interest Rates and Wealth Inequality</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 07 - Fixed Income 4 - Interest Rates and Wealth Inequality.pdf" class="card">
+          <div class="card-title">Interest Rates and Wealth Inequality</div>
+          <div class="card-desc">How changes in interest rates affect different parts of the wealth distribution through asset valuations.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 08 - Fixed Income 5 - Fed Trivia.pdf" class="session">
-          <span class="session-number">08</span>
-          <span class="session-title">Fed Trivia</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 08 - Fixed Income 5 - Fed Trivia.pdf" class="card">
+          <div class="card-title">Fed Trivia</div>
+          <div class="card-desc">Testing your knowledge of Federal Reserve history, structure, and monetary policy decisions.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 09 - Fixed Income 6 - Narrow Banking and Stablecoins.pdf" class="session">
-          <span class="session-number">09</span>
-          <span class="session-title">Narrow Banking and Stablecoins</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 09 - Fixed Income 6 - Narrow Banking and Stablecoins.pdf" class="card">
+          <div class="card-title">Narrow Banking and Stablecoins</div>
+          <div class="card-desc">The century-old idea of narrow banking and how stablecoins are accidentally reinventing it.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>Portfolio Choice</h2>
-        <span class="module-count">3 sessions</span>
+        <h2>Topic 3: Portfolio Choice</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 10 - Portfolio Choice 1 - Asset Demand of U.S. Households.pdf" class="session">
-          <span class="session-number">10</span>
-          <span class="session-title">Asset Demand of U.S. Households</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 10 - Portfolio Choice 1 - Asset Demand of U.S. Households.pdf" class="card">
+          <div class="card-title">Asset Demand of U.S. Households</div>
+          <div class="card-desc">New data on how American households actually allocate their portfolios across stocks, bonds, and real estate.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 11 - Portfolio Choice 2 - Crypto Strategic Reserve.pdf" class="session">
-          <span class="session-number">11</span>
-          <span class="session-title">Crypto Strategic Reserve</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 11 - Portfolio Choice 2 - Crypto Strategic Reserve.pdf" class="card">
+          <div class="card-title">Crypto Strategic Reserve</div>
+          <div class="card-desc">Examining proposals for government cryptocurrency reserves and what it would mean for portfolio theory.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 12 - Portfolio Choice 3 - Social Security as Ponzi Scheme.pdf" class="session">
-          <span class="session-number">12</span>
-          <span class="session-title">Social Security as Ponzi Scheme</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 12 - Portfolio Choice 3 - Social Security as Ponzi Scheme.pdf" class="card">
+          <div class="card-title">Social Security as Ponzi Scheme</div>
+          <div class="card-desc">Why Social Security technically meets the definition of a Ponzi scheme, and why that's not necessarily bad.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>CAPM</h2>
-        <span class="module-count">2 sessions</span>
+        <h2>Topic 4: CAPM</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 13 - CAPM 1 - Spring Break Updates.pdf" class="session">
-          <span class="session-number">13</span>
-          <span class="session-title">Spring Break Updates</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 13 - CAPM 1 - Spring Break Updates.pdf" class="card">
+          <div class="card-title">Spring Break Updates</div>
+          <div class="card-desc">Market developments during spring break and their implications for systematic risk and expected returns.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 14 - CAPM 2 - Central Bankers.pdf" class="session">
-          <span class="session-number">14</span>
-          <span class="session-title">Central Bankers</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 14 - CAPM 2 - Central Bankers.pdf" class="card">
+          <div class="card-title">Central Bankers</div>
+          <div class="card-desc">The humans behind monetary policy: backgrounds, incentives, and decision-making of central bankers worldwide.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>Beyond CAPM</h2>
-        <span class="module-count">3 sessions</span>
+        <h2>Topic 5: Beyond CAPM</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 15 - Beyond CAPM 1 - Value at Risk.pdf" class="session">
-          <span class="session-number">15</span>
-          <span class="session-title">Value at Risk</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 15 - Beyond CAPM 1 - Value at Risk.pdf" class="card">
+          <div class="card-title">Value at Risk</div>
+          <div class="card-desc">The rise and limitations of VaR as a risk measure, and what the 2008 crisis taught us about tail risk.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 16 - Beyond CAPM 2 - Tariffs.pdf" class="session">
-          <span class="session-number">16</span>
-          <span class="session-title">Tariffs</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 16 - Beyond CAPM 2 - Tariffs.pdf" class="card">
+          <div class="card-title">Tariffs</div>
+          <div class="card-desc">How trade policy uncertainty creates systematic risk and affects asset prices across global markets.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 17 - Beyond CAPM 3 - How to Form Beliefs.pdf" class="session">
-          <span class="session-number">17</span>
-          <span class="session-title">How to Form Beliefs</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 17 - Beyond CAPM 3 - How to Form Beliefs.pdf" class="card">
+          <div class="card-title">How to Form Beliefs</div>
+          <div class="card-desc">Bayesian updating, base rates, and the challenge of forming rational expectations in financial markets.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>Funds</h2>
-        <span class="module-count">3 sessions</span>
+        <h2>Topic 6: Funds</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 18 - Funds 1 - Predicting the Future.pdf" class="session">
-          <span class="session-number">18</span>
-          <span class="session-title">Predicting the Future</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 18 - Funds 1 - Predicting the Future.pdf" class="card">
+          <div class="card-title">Predicting the Future</div>
+          <div class="card-desc">Prediction markets, forecasting tournaments, and what superforecasters can teach us about investing.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 19 - Funds 2 - Cat Bonds.pdf" class="session">
-          <span class="session-number">19</span>
-          <span class="session-title">Cat Bonds</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 19 - Funds 2 - Cat Bonds.pdf" class="card">
+          <div class="card-title">Cat Bonds</div>
+          <div class="card-desc">Catastrophe bonds as an alternative asset class: how to invest in hurricane and earthquake risk.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 20 - Funds 3 - NOVO, Data Centers, and Pets.pdf" class="session">
-          <span class="session-number">20</span>
-          <span class="session-title">NOVO, Data Centers, and Pets</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 20 - Funds 3 - NOVO, Data Centers, and Pets.pdf" class="card">
+          <div class="card-title">NOVO, Data Centers, and Pets</div>
+          <div class="card-desc">Three investment themes: Novo Nordisk's GLP-1 dominance, AI infrastructure demand, and the pet economy.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>Behavioral Finance</h2>
-        <span class="module-count">2 sessions</span>
+        <h2>Topic 7: Behavioral Finance</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 21  - Behavioral Finance 1 - GOAT.pdf" class="session">
-          <span class="session-number">21</span>
-          <span class="session-title">GOAT</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 21  - Behavioral Finance 1 - GOAT.pdf" class="card">
+          <div class="card-title">GOAT</div>
+          <div class="card-desc">The "Greatest of All Time" debate in sports and investing: survivorship bias and narrative fallacy.</div>
         </a>
-        <a href="/Documents/Aperitivo/Session 22 - Behavioral Finance 2 - Beliefs and Preferences.pdf" class="session">
-          <span class="session-number">22</span>
-          <span class="session-title">Beliefs and Preferences</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+        <a href="/Documents/Aperitivo/Session 22 - Behavioral Finance 2 - Beliefs and Preferences.pdf" class="card">
+          <div class="card-title">Beliefs and Preferences</div>
+          <div class="card-desc">Disentangling what investors believe from what they want: the identification challenge in behavioral finance.</div>
         </a>
       </div>
     </section>
 
     <section class="module">
       <div class="module-header">
-        <h2>Taxes</h2>
-        <span class="module-count">1 session</span>
+        <h2>Topic 8: Taxes</h2>
       </div>
-      <div class="sessions">
-        <a href="/Documents/Aperitivo/Session 23 - Taxes - Favorite Economist.pdf" class="session">
-          <span class="session-number">23</span>
-          <span class="session-title">Favorite Economist</span>
-          <svg class="session-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7V17"/></svg>
+      <div class="cards">
+        <a href="/Documents/Aperitivo/Session 23 - Taxes - Favorite Economist.pdf" class="card">
+          <div class="card-title">Favorite Economist</div>
+          <div class="card-desc">Students share their favorite economists and what we can learn from their approaches to understanding markets.</div>
         </a>
       </div>
     </section>
