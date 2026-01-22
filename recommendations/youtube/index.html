@@ -84,36 +84,49 @@
             padding: 48px 0;
         }
 
-        .video-list {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
         }
 
         .video-card {
             display: block;
             background: var(--color-bg-surface);
             border: 1px solid var(--color-border-subtle);
-            padding: 28px 32px;
             text-decoration: none;
             color: inherit;
             transition: all 0.2s ease;
+            overflow: hidden;
         }
 
         .video-card:hover {
             border-color: var(--color-brand-primary);
+            transform: translateY(-2px);
+        }
+
+        .video-thumbnail {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-info {
+            padding: 20px;
         }
 
         .video-card h2 {
             font-family: var(--font-serif);
-            font-size: 1.4rem;
+            font-size: 1.1rem;
             font-weight: 500;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
+            line-height: 1.4;
         }
 
         .video-card p {
             color: var(--color-text-muted);
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
     </style>
 </head>
@@ -130,20 +143,29 @@
         </header>
 
         <section class="videos">
-            <div class="video-list">
+            <div class="video-grid">
                 <a href="https://www.youtube.com/watch?v=FgGO7ARzU9U" target="_blank" class="video-card">
-                    <h2>Barack Obama's 2004 DNC Speech</h2>
-                    <p>The keynote address that introduced Obama to the national stage.</p>
+                    <img src="https://img.youtube.com/vi/FgGO7ARzU9U/maxresdefault.jpg" alt="Barack Obama's 2004 DNC Speech" class="video-thumbnail">
+                    <div class="video-info">
+                        <h2>Barack Obama's 2004 DNC Speech</h2>
+                        <p>The keynote address that introduced Obama to the national stage.</p>
+                    </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=kDMyeGQm3NA" target="_blank" class="video-card">
-                    <h2>Mark Carney Speaks at 2026 World Economic Forum in Davos</h2>
-                    <p>Remarks at the World Economic Forum.</p>
+                    <img src="https://img.youtube.com/vi/kDMyeGQm3NA/maxresdefault.jpg" alt="Mark Carney at Davos 2026" class="video-thumbnail">
+                    <div class="video-info">
+                        <h2>Mark Carney Speaks at 2026 World Economic Forum in Davos</h2>
+                        <p>Remarks at the World Economic Forum.</p>
+                    </div>
                 </a>
 
                 <a href="https://www.youtube.com/watch?v=fShjMXWu6kU" target="_blank" class="video-card">
-                    <h2>Harry Mack's Prom Night in DC | Guerrilla Bars 25</h2>
-                    <p>Freestyle rap performance from the Guerrilla Bars series.</p>
+                    <img src="https://img.youtube.com/vi/fShjMXWu6kU/maxresdefault.jpg" alt="Harry Mack Guerrilla Bars 25" class="video-thumbnail">
+                    <div class="video-info">
+                        <h2>Harry Mack's Prom Night in DC | Guerrilla Bars 25</h2>
+                        <p>Freestyle rap performance from the Guerrilla Bars series.</p>
+                    </div>
                 </a>
             </div>
         </section>
