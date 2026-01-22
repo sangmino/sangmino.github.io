@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seoul Guide - Simon's Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-brand-primary: #6F7F99;
+            --color-brand-hover: #5A6675;
+            --color-bg-paper: #F9F9F5;
+            --color-bg-surface: #F2F0E8;
+            --color-text-main: #2A2F36;
+            --color-text-muted: #666A70;
+            --color-border-subtle: #E0DFD5;
+            --font-serif: 'Newsreader', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg-paper);
+            color: var(--color-text-main);
+            line-height: 1.7;
+        }
+
+        .container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        nav a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--color-brand-primary);
+        }
+
+        /* Sticky section nav */
+        .section-nav {
+            position: sticky;
+            top: 0;
+            background: var(--color-bg-paper);
+            padding: 16px 0;
+            border-bottom: 1px solid var(--color-border-subtle);
+            z-index: 100;
+            margin-bottom: 32px;
+        }
+
+        .section-nav-inner {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .section-nav button {
+            font-family: var(--font-sans);
+            font-size: 0.85rem;
+            padding: 8px 16px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: var(--color-bg-surface);
+            color: var(--color-text-main);
+        }
+
+        .section-nav button:hover {
+            background: var(--color-border-subtle);
+        }
+
+        .section-nav button.active {
+            background: var(--color-brand-primary);
+            color: white;
+        }
+
+        header {
+            padding: 48px 0 32px;
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.75rem;
+            font-weight: 500;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .author-note {
+            background: var(--color-bg-surface);
+            border-left: 3px solid var(--color-brand-primary);
+            padding: 20px 24px;
+            margin: 24px 0 32px;
+            font-size: 0.95rem;
+            color: var(--color-text-muted);
+            font-style: italic;
+        }
+
+        h2 {
+            font-family: var(--font-serif);
+            font-size: 1.75rem;
+            font-weight: 500;
+            margin: 48px 0 20px;
+            padding-top: 24px;
+            border-top: 1px solid var(--color-border-subtle);
+        }
+
+        h2:first-of-type {
+            border-top: none;
+            margin-top: 32px;
+        }
+
+        h3 {
+            font-family: var(--font-serif);
+            font-size: 1.25rem;
+            font-weight: 500;
+            margin: 32px 0 16px;
+            color: var(--color-text-main);
+        }
+
+        h4 {
+            font-family: var(--font-sans);
+            font-size: 1rem;
+            font-weight: 600;
+            margin: 24px 0 12px;
+            color: var(--color-brand-primary);
+        }
+
+        p {
+            margin-bottom: 16px;
+        }
+
+        ul {
+            margin: 16px 0;
+            padding-left: 24px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        li ul {
+            margin-top: 8px;
+            margin-bottom: 8px;
+        }
+
+        strong {
+            font-weight: 600;
+        }
+
+        .korean {
+            color: var(--color-text-muted);
+            font-size: 0.9em;
+        }
+
+        a {
+            color: var(--color-brand-primary);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .tip-box {
+            background: var(--color-bg-surface);
+            border: 1px solid var(--color-border-subtle);
+            padding: 20px 24px;
+            margin: 24px 0;
+        }
+
+        .tip-box h4 {
+            margin-top: 0;
+            margin-bottom: 12px;
+        }
+
+        .tip-box ul {
+            margin-bottom: 0;
+        }
+
+        .tip-box li:last-child {
+            margin-bottom: 0;
+        }
+
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--color-text-muted);
+            margin-top: 8px;
+        }
+
+        footer {
+            padding: 48px 0;
+            margin-top: 48px;
+            border-top: 1px solid var(--color-border-subtle);
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            .section-nav-inner {
+                gap: 6px;
+            }
+            .section-nav button {
+                padding: 6px 12px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="index.html">&larr; Back to Travel</a>
+        </nav>
+
+        <header>
+            <h1>Seoul, South Korea</h1>
+        </header>
+
+        <div class="author-note">
+            As someone from Daegu, I should mention that I'm also a visitor to Seoul in many ways. While this guide reflects my experiences and research, Seoul is a city that even many Koreans find constantly evolving and surprising. Like many Koreans from outside the capital, I have a complex relationship with Seoul: it's familiar yet foreign, overwhelming yet exciting. I hope this guide helps you navigate this fascinating city with both its mainstream attractions and hidden gems.
+        </div>
+
+        <div class="section-nav">
+            <div class="section-nav-inner">
+                <button class="active" data-section="all">All</button>
+                <button data-section="introduction">Introduction</button>
+                <button data-section="tips">Tips</button>
+                <button data-section="explore">Explore</button>
+                <button data-section="eat">Eat</button>
+            </div>
+        </div>
+
+        <article>
+            <section id="introduction" data-section="introduction">
+                <h2>Introduction</h2>
+                <p>Seoul is a sprawling metropolis of 10 million people (25 million if you count the greater metropolitan area), built around the mighty Han River. This river creates a natural division between Gangnam (south) and Gangbuk (north), each with its distinct character. Gangnam is the modern face of Seoul, with its gleaming office towers and upscale neighborhoods, while Gangbuk holds most of the city's historic sites and government institutions.</p>
+                <p>The city blends ultra-modern infrastructure with historic temples and palaces. Its extensive subway system connects all corners of the city, making it surprisingly navigable despite its size. Most academic institutions are concentrated in specific districts: Seoul National University in Gwanak, Korea University in Anam, and Yonsei University in Sinchon.</p>
+            </section>
+
+            <section id="tips" data-section="tips">
+                <h2>A Few Tips</h2>
+                <p>Seoul differs from Western cities in several practical aspects.</p>
+                <ul>
+                    <li>The city operates on a near 24-hour schedule, particularly in commercial and entertainment districts.</li>
+                    <li>Public transportation is extensive and highly reliable, though service typically ends around midnight.</li>
+                    <li>While local food and transport costs are moderate by international standards, luxury goods and high-end dining are priced similarly to other major global cities.</li>
+                    <li>The service industry operates without tipping, and credit cards are widely accepted except in traditional markets and some small establishments.</li>
+                    <li>Cultural norms and business etiquette differ significantly from Western practices, particularly regarding age hierarchy and group dynamics.</li>
+                </ul>
+
+                <h3>Navigation & Transport</h3>
+                <ul>
+                    <li>Download Naver Maps or Kakao Maps. <strong>Google Maps is unreliable in Korea.</strong></li>
+                    <li>Get a T-money card from any convenience store or subway station (₩4,000 deposit, refundable) for subway and bus transport.</li>
+                    <li>Subway is extensive and runs from ~5:30AM to midnight.</li>
+                    <li>Taxis are affordable and use reliable meters. Download the Kakao T app for easy hailing. Uber also works, but you will not be able to pay with Apple Pay.</li>
+                </ul>
+
+                <h3>Money & Payments</h3>
+                <ul>
+                    <li>Korea is very card-friendly. Even small restaurants usually accept cards.</li>
+                    <li>Traditional markets and some older establishments may be cash-only.</li>
+                    <li>No tipping culture. Tipping can even be considered awkward or offensive.</li>
+                </ul>
+                <div class="tip-box">
+                    <h4>Price Levels (as of 2024)</h4>
+                    <ul>
+                        <li>Casual meal: ₩8,000-15,000 ($6-12)</li>
+                        <li>Korean BBQ: ₩20,000-40,000 ($15-30) per person</li>
+                        <li>High-end dining: ₩50,000-100,000+ ($38-75+) per person</li>
+                    </ul>
+                </div>
+
+                <h3>Restaurant Etiquette</h3>
+                <ul>
+                    <li>Most restaurants serve water and banchan (side dishes) for free.</li>
+                    <li>Refills of banchan and water are typically free. Just ask.</li>
+                    <li>Some popular places don't take reservations and may have long waits.</li>
+                    <li>At Korean BBQ, staff will usually help with the grilling.</li>
+                    <li>Don't pour your own drinks. Let others pour for you, and pour for others.</li>
+                    <li>When dining with Korean colleagues, let the senior person lead.</li>
+                </ul>
+
+                <h3>Language</h3>
+                <ul>
+                    <li>Basic English is understood in major areas but limited elsewhere.</li>
+                    <li>Having key phrases written in Korean (especially food allergies/preferences) is helpful.</li>
+                    <li>Most restaurants have pictures or English menus in tourist areas.</li>
+                </ul>
+            </section>
+
+            <section id="explore" data-section="explore">
+                <h2>To Explore</h2>
+                <p>The north contains most historical sites, government buildings, and older neighborhoods, while the south houses the modern business districts and entertainment zones. The city's extensive public transportation system, particularly its subway, connects these diverse areas efficiently. Major districts each serve distinct functions: Jongno for history and politics, Gangnam for business, Hongdae for youth culture, and Yeouido for finance.</p>
+
+                <h3>Historic Seoul</h3>
+                <ul>
+                    <li><strong>Gyeongbokgung Palace</strong> <span class="korean">(경복궁)</span>: Korea's grandest palace, built in 1395 as the main royal palace of the Joseon dynasty. Known for its changing of the guard ceremony and stunning mountain backdrop. Best visited in early morning to avoid crowds.</li>
+                    <li><strong>Changdeokgung Palace</strong> <span class="korean">(창덕궁)</span>: UNESCO site featuring a "Secret Garden" (비원). More intimate than Gyeongbokgung, this palace was the preferred residence of many Joseon kings. Book Secret Garden tours in advance.</li>
+                    <li><strong>Bukchon Hanok Village</strong> <span class="korean">(북촌한옥마을)</span>: A historic neighborhood filled with traditional Korean houses between the two palaces. Best viewed from the elevated spots near Gahoe-dong. Many houses are still private residences.</li>
+                    <li><strong>Jogyesa Temple</strong> <span class="korean">(조계사)</span>: Center of Korean Buddhism, famous for its ancient trees and lantern festival on Buddha's birthday. Offers temple stay programs and regular meditation sessions.</li>
+                    <li><strong>Deoksugung Palace</strong> <span class="korean">(덕수궁)</span>: Known for its unique stone-wall road and mix of traditional Korean and Western architecture. Beautiful when lit up at night.</li>
+                    <li><strong>Unhyeongung Palace</strong> <span class="korean">(운현궁)</span>: Lesser-known palace where Emperor Gojong spent his childhood. More peaceful than main palaces.</li>
+                    <li><strong>Namsangol Hanok Village</strong> <span class="korean">(남산골한옥마을)</span>: Five restored traditional Korean houses at the foot of Namsan Mountain. Offers traditional craft workshops.</li>
+                    <li><strong>Seodaemun Prison History Hall</strong> <span class="korean">(서대문형무소역사관)</span>: Former prison turned museum, important site for understanding Korea's independence movement.</li>
+                    <li><strong>Bongeunsa Temple</strong> <span class="korean">(봉은사)</span>: Ancient Buddhist temple in modern Gangnam. Striking contrast with COEX building across the street.</li>
+                </ul>
+
+                <h3>Modern Seoul</h3>
+                <ul>
+                    <li><strong>Dongdaemun Design Plaza</strong> <span class="korean">(동대문디자인플라자)</span>: Zaha Hadid's iconic building, hosts fashion shows and design exhibitions. Spectacular at night with LED roses.</li>
+                    <li><strong>Lotte World Tower</strong> <span class="korean">(롯데월드타워)</span>: Korea's tallest building (123 floors). Glass-floor sky deck offers breathtaking views. Book sunset time slots in advance.</li>
+                    <li><strong>Starfield COEX Mall</strong> <span class="korean">(스타필드 코엑스몰)</span>: Massive underground complex with the Instagram-famous Starfield Library. Connected to multiple subway lines and hotels.</li>
+                    <li><strong>Yeouido</strong> <span class="korean">(여의도)</span>: Korea's Wall Street, home to major financial institutions. Best during cherry blossom season or evening river views.</li>
+                    <li><strong>Common Ground</strong> <span class="korean">(커먼그라운드)</span>: World's largest container shopping mall, popular with young crowds.</li>
+                    <li><strong>Gangnam Station Area</strong> <span class="korean">(강남역)</span>: Heart of modern Seoul, endless shopping and dining options.</li>
+                    <li><strong>Seoul Sky</strong> <span class="korean">(서울스카이)</span>: Observation deck in Lotte World Tower, highest point in Korea.</li>
+                    <li><strong>Times Square</strong> <span class="korean">(타임스퀘어)</span>: Massive shopping complex in Yeongdeungpo, modern architecture.</li>
+                    <li><strong>Sevit Island</strong> <span class="korean">(세빛섬)</span>: Three floating islands on Han River, beautiful night views.</li>
+                </ul>
+
+                <h3>Cultural Experiences</h3>
+                <ul>
+                    <li><strong>National Museum of Korea</strong> <span class="korean">(국립중앙박물관)</span>: Houses over 330,000 pieces. Free admission, closed Mondays. Plan at least half a day.</li>
+                    <li><strong>Leeum Museum</strong> <span class="korean">(리움미술관)</span>: Samsung's art museum complex, mixing traditional Korean art with contemporary works. Architecture alone worth the visit.</li>
+                    <li><strong>Gwangjang Market</strong> <span class="korean">(광장시장)</span>: Korea's oldest remaining market, famous for bindaetteok (mung bean pancakes) and textile shops. Best experienced during lunch hours.</li>
+                    <li><strong>Insadong</strong> <span class="korean">(인사동)</span>: Traditional culture street, best for souvenirs and tea houses. Visit on Sunday when the main road becomes pedestrian-only.</li>
+                    <li><strong>National Folk Museum</strong> <span class="korean">(국립민속박물관)</span>: Located inside Gyeongbokgung, excellent for understanding daily life in historical Korea.</li>
+                    <li><strong>War Memorial of Korea</strong> <span class="korean">(전쟁기념관)</span>: Comprehensive museum about Korean War. Free admission, impressive outdoor exhibition.</li>
+                    <li><strong>Seoul Museum of History</strong> <span class="korean">(서울역사박물관)</span>: Chronicles Seoul's transformation from ancient times. Good introduction to city's development.</li>
+                    <li><strong>Dongdaemun Market</strong> <span class="korean">(동대문시장)</span>: 24-hour shopping district, especially for textiles and fashion.</li>
+                    <li><strong>Bukchon Cultural Center</strong> <span class="korean">(북촌문화센터)</span>: Offers hands-on traditional Korean cultural experiences.</li>
+                </ul>
+
+                <h3>K-Culture & Entertainment</h3>
+                <ul>
+                    <li><strong>SM COEX Artium</strong> <span class="korean">(에스엠코엑스아티움)</span>: K-pop entertainment company's exhibition space and merchandise store. Live hologram concerts and interactive exhibits featuring popular SM artists.</li>
+                    <li><strong>Hybe Insight</strong> <span class="korean">(하이브 인사이트)</span>: BTS's entertainment company's museum. Interactive music experiences and behind-the-scenes exhibits of K-pop production.</li>
+                    <li><strong>K-Star Road</strong> <span class="korean">(케이스타로드)</span>: Street in Gangnam featuring K-pop agencies and giant bear statues representing different K-pop groups.</li>
+                    <li><strong>MBC World</strong> <span class="korean">(MBC월드)</span>: Broadcasting station theme park with virtual reality experiences and K-drama sets.</li>
+                    <li><strong>Hongdae</strong> <span class="korean">(홍대)</span>: Seoul's youth culture hub, known for street performances, K-pop dance busking, independent music scenes, and art galleries.</li>
+                </ul>
+                <div class="tip-box">
+                    <h4>Jjimjilbang (찜질방) Culture</h4>
+                    <ul>
+                        <li><strong>Dragon Hill Spa</strong> <span class="korean">(드래곤힐스파)</span>: Most foreigner-friendly</li>
+                        <li><strong>Siloam Sauna</strong> <span class="korean">(실로암사우나)</span>: Near Seoul Station</li>
+                        <li><strong>Spaland COEX</strong> <span class="korean">(스파랜드)</span>: Luxury option in Gangnam</li>
+                    </ul>
+                </div>
+
+                <h3>Nature and City Views</h3>
+                <ul>
+                    <li><strong>Namsan Seoul Tower</strong> <span class="korean">(남산서울타워)</span>: Iconic tower with citywide views. Popular for its "love locks" and cable car ride.</li>
+                    <li><strong>Seoul Forest</strong> <span class="korean">(서울숲)</span>: Seoul's answer to Central Park. Beautiful in spring and fall, has deer enclosure.</li>
+                    <li><strong>Han River Parks</strong> <span class="korean">(한강공원)</span>:
+                        <ul>
+                            <li>Yeouido Hangang Park <span class="korean">(여의도한강공원)</span>: Most popular, great for picnics</li>
+                            <li>Banpo Hangang Park <span class="korean">(반포한강공원)</span>: Famous for Rainbow Fountain Bridge</li>
+                            <li>Ttukseom Hangang Park <span class="korean">(뚝섬한강공원)</span>: Water sports and youth culture</li>
+                        </ul>
+                    </li>
+                    <li><strong>Bukhansan National Park</strong> <span class="korean">(북한산국립공원)</span>: Mountain hiking within city limits, spectacular views of Seoul.</li>
+                </ul>
+
+                <h3>Trendy Neighborhoods</h3>
+                <ul>
+                    <li><strong>Seongsu-dong</strong> <span class="korean">(성수동)</span>: "Brooklyn of Seoul." Industrial buildings converted to cafes, art galleries, and independent fashion brands.</li>
+                    <li><strong>Euljiro</strong> <span class="korean">(을지로)</span>: Retro vibes. Hidden bars in old printing shops, industrial aesthetic cafes, and traditional mom-and-pop shops.</li>
+                    <li><strong>Garosu-gil</strong> <span class="korean">(가로수길)</span>: Trendy shopping street with designer boutiques, Instagram-worthy cafes, and beauty shops.</li>
+                </ul>
+            </section>
+
+            <section id="eat" data-section="eat">
+                <h2>To Eat</h2>
+                <p>In general, Korean meals are structured around a main dish accompanied by various side dishes (반찬, banchan). These side dishes are refillable and create a complete dining experience. Most restaurants specialize in specific dishes rather than offering extensive menus, a sign of expertise and dedication to craft.</p>
+
+                <h3>Recommendations for Vegetarians</h3>
+                <p>While Korea's contemporary food culture is notably meat-centric, the country has a rich tradition of vegetarian cuisine rooted in Buddhist temple food <span class="korean">(사찰음식, sachal eumsik)</span>. Temple cuisine, developed over centuries by Buddhist monks, is completely plant-based and eschews strong aromatics like garlic and onions. It showcases sophisticated techniques for bringing out natural flavors through fermentation, dehydration, and careful seasoning.</p>
+                <p>While finding strictly vegetarian food in regular restaurants can be challenging (even seemingly vegetable dishes often contain fish sauce or meat stock), Korea offers unique vegetarian experiences through temple restaurants and a growing modern plant-based movement. The cuisine emphasizes seasonal mountain vegetables <span class="korean">(산나물, sannammul)</span>, various types of mushrooms, and numerous preparations of soybeans including tofu <span class="korean">(두부)</span>, offering complex flavors without relying on meat.</p>
+                <p>A helpful resource: <a href="https://veganseoul.com/">veganseoul.com</a></p>
+
+                <h3>Pork</h3>
+                <p>Korean pork culture centers around samgyeopsal <span class="korean">(삼겹살, grilled pork belly)</span>, a national favorite that's as much about the communal dining experience as the meat itself. The most prized variety is Jeju Black Pork, raised on Jeju Island, known for its exceptional marbling and clean taste.</p>
+                <p>Beyond grilled preparations, Koreans are famous for their braised pork dishes like galbijjim <span class="korean">(갈비찜)</span> and bold, spicy creations like jeyuk-bokkeum <span class="korean">(제육볶음)</span>.</p>
+
+                <h3>Beef</h3>
+                <p>Korean beef, or hanwoo <span class="korean">(한우)</span>, is celebrated for its exceptional marbling and deep flavor profile, rivaling Japan's wagyu. The grading system (1++ being the highest) reflects the intense focus on quality. Korean beef culture emphasizes minimal seasoning, often just salt and sesame oil, to highlight the meat's natural flavors.</p>
+                <p>Beyond barbecue, beef appears in dishes like yukhoe <span class="korean">(육회, raw beef tartare)</span> and gomtang <span class="korean">(곰탕, rich beef bone soup)</span>, each showcasing different aspects of the meat.</p>
+
+                <h3>Chicken</h3>
+                <p>Korean chicken preparation balances two distinct traditions: the ancient (medical food like samgyetang, <span class="korean">삼계탕</span>, ginseng chicken soup) and the modern (Korean fried chicken culture).</p>
+                <p>Korean fried chicken, or chimaek <span class="korean">(치맥, chicken and beer)</span>, represents a post-war innovation that's become a global phenomenon, known for its ultra-crispy double-fried technique and variety of glazes. The country's chicken dishes often incorporate ginseng, garlic, and medicinal herbs, reflecting traditional Korean medical theories.</p>
+
+                <h3>Seafood</h3>
+                <p>As a peninsula, Korea's seafood cuisine reflects its three-sided coastal geography. The country is particularly famous for its hwe <span class="korean">(회, raw fish)</span>, seafood stews like haemultang <span class="korean">(해물탕)</span>, and fermented preparations like jeotgal <span class="korean">(젓갈)</span>.</p>
+                <p>Live octopus <span class="korean">(산낙지)</span>, though not for the faint-hearted, remains a unique delicacy. Korean seafood culture emphasizes freshness to an extreme degree: many restaurants have live tanks, and markets like Noryangjin operate 24/7 to maintain the freshest possible supply.</p>
+
+                <h3>Specific Dish Recommendations</h3>
+
+                <h4>Rice Dishes (밥류)</h4>
+                <ul>
+                    <li><strong>Bibimbap</strong> <span class="korean">(비빔밥)</span>: Mixed rice bowl topped with vegetables, egg, meat, and gochujang. Each ingredient arranged separately before mixing. The dolsot (stone pot) version creates crispy rice.</li>
+                    <li><strong>Kimchi Bokkeumbap</strong> <span class="korean">(김치볶음밥)</span>: Stir-fried rice with aged kimchi, typically includes pork or spam. Perfect balance of spicy and savory.</li>
+                </ul>
+
+                <h4>Soups & Stews (국/찌개)</h4>
+                <ul>
+                    <li><strong>Kimchi Jjigae</strong> <span class="korean">(김치찌개)</span>: Spicy stew made with aged kimchi and pork. Deep, complex flavors from fermented kimchi.</li>
+                    <li><strong>Seolleongtang</strong> <span class="korean">(설렁탕)</span>: Milky beef bone soup simmered for hours. Served with rice, green onions, and salt on the side to season to taste.</li>
+                    <li><strong>Sundubu Jjigae</strong> <span class="korean">(순두부찌개)</span>: Soft tofu stew with seafood or meat in spicy broth. Often served bubbling hot with raw egg.</li>
+                    <li><strong>Samgyetang</strong> <span class="korean">(삼계탕)</span>: Whole young chicken stuffed with ginseng, rice, and medicinal herbs. Traditional summer health food.</li>
+                </ul>
+
+                <h4>Noodles (면류)</h4>
+                <ul>
+                    <li><strong>Naengmyeon</strong> <span class="korean">(냉면)</span>: Cold buckwheat noodles in beef broth (mul-naengmyeon) or spicy sauce (bibim-naengmyeon). Topped with sliced pear, cucumber, and egg.</li>
+                    <li><strong>Japchae</strong> <span class="korean">(잡채)</span>: Sweet potato noodles stir-fried with vegetables and meat. Common holiday dish.</li>
+                    <li><strong>Kalguksu</strong> <span class="korean">(칼국수)</span>: Hand-cut wheat noodles in rich chicken or seafood broth. Often served with dumplings.</li>
+                </ul>
+
+                <h4>BBQ & Grilled Dishes (구이)</h4>
+                <ul>
+                    <li><strong>Samgyeopsal</strong> <span class="korean">(삼겹살)</span>: Grilled pork belly, usually unseasoned. Eaten with lettuce wraps, garlic, and sauces.</li>
+                    <li><strong>Galbi</strong> <span class="korean">(갈비)</span>: Marinated beef short ribs. Sweet and savory marinade with soy sauce, garlic, and fruit.</li>
+                    <li><strong>Bulgogi</strong> <span class="korean">(불고기)</span>: Thinly sliced marinated beef, traditionally grilled but also served as soup or hot pot.</li>
+                </ul>
+
+                <h4>Street Food (길거리 음식)</h4>
+                <ul>
+                    <li><strong>Tteokbokki</strong> <span class="korean">(떡볶이)</span>: Spicy rice cakes in gochujang sauce. Sometimes includes fish cakes and boiled eggs.</li>
+                    <li><strong>Hotteok</strong> <span class="korean">(호떡)</span>: Sweet pancakes filled with brown sugar, nuts, and cinnamon.</li>
+                    <li><strong>Bungeoppang</strong> <span class="korean">(붕어빵)</span>: Fish-shaped pastry filled with sweet red bean paste.</li>
+                    <li><strong>Gimbap</strong> <span class="korean">(김밥)</span>: Korean-style sushi rolls with vegetables and meat.</li>
+                </ul>
+
+                <h4>Drinking Food (안주)</h4>
+                <ul>
+                    <li><strong>Korean Fried Chicken</strong> <span class="korean">(치킨)</span>: Double-fried for extra crispiness, various sauces available.</li>
+                    <li><strong>Pajeon</strong> <span class="korean">(파전)</span>: Savory pancake with green onions, seafood, or kimchi.</li>
+                    <li><strong>Budae Jjigae</strong> <span class="korean">(부대찌개)</span>: "Army stew" featuring American military base ingredients like spam and hot dogs, mixed with Korean ingredients.</li>
+                </ul>
+            </section>
+        </article>
+
+        <footer>
+            <p>Simon Oh</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const buttons = document.querySelectorAll('.section-nav button');
+            const sections = document.querySelectorAll('section[data-section]');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const sectionId = this.dataset.section;
+
+                    // Update active button
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    if (sectionId === 'all') {
+                        // Show all sections
+                        sections.forEach(section => {
+                            section.style.display = 'block';
+                        });
+                    } else {
+                        // Show only selected section
+                        sections.forEach(section => {
+                            if (section.dataset.section === sectionId) {
+                                section.style.display = 'block';
+                                section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                            } else {
+                                section.style.display = 'none';
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
