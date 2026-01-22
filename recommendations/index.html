@@ -57,7 +57,32 @@
             color: var(--color-text-muted);
             font-size: 1.1rem;
             max-width: 500px;
-            margin: 0 auto;
+            margin: 0 auto 16px;
+        }
+
+        .author-info {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .author-info a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .author-info a:hover {
+            color: var(--color-brand-primary);
+        }
+
+        .author-info svg {
+            width: 18px;
+            height: 18px;
         }
 
         .categories {
@@ -111,13 +136,30 @@
             color: var(--color-text-muted);
             font-size: 0.9rem;
         }
+
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--color-brand-primary);
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <header>
             <h1>Simon's Recommendations</h1>
-            <p class="subtitle">A curated collection of places, things, and experiences worth your time.</p>
+            <p class="subtitle">A curated collection of places, things, and experiences.</p>
+            <div class="author-info">
+                <span>Simon Oh | oh@gsb.columbia.edu</span>
+                <a href="https://sangmino.github.io" title="Simon's Website">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                    </svg>
+                </a>
+            </div>
         </header>
 
         <section class="categories">
@@ -135,8 +177,14 @@
                 </div>
 
                 <div class="category-card" style="opacity: 0.5; cursor: default;">
-                    <h2>Software</h2>
-                    <p>Tools and applications that improve productivity and workflow.</p>
+                    <h2>Productivity Tools</h2>
+                    <p>Software and applications that improve workflow and efficiency.</p>
+                    <span class="count">Coming soon</span>
+                </div>
+
+                <div class="category-card" style="opacity: 0.5; cursor: default;">
+                    <h2>People</h2>
+                    <p>Those with works and ideas worth considering.</p>
                     <span class="count">Coming soon</span>
                 </div>
 
@@ -145,11 +193,17 @@
                     <p>Memorable dining experiences in cities I frequent.</p>
                     <span class="count">Coming soon</span>
                 </div>
+
+                <div class="category-card" style="opacity: 0.5; cursor: default;">
+                    <h2>YouTube</h2>
+                    <p>Videos and channels worth watching.</p>
+                    <span class="count">Coming soon</span>
+                </div>
             </div>
         </section>
 
         <footer>
-            <p>Simon Oh</p>
+            <a href="https://sangmino.github.io">Simon Oh</a>
         </footer>
     </div>
 </body>

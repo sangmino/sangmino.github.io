@@ -115,12 +115,26 @@
             color: var(--color-text-muted);
             font-size: 0.9rem;
         }
+
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--color-brand-primary);
+        }
+
+        nav {
+            display: flex;
+            justify-content: flex-end;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <nav>
-            <a href="../index.html">&larr; Back to all categories</a>
+            <a href="../index.html">Back to Recommendations</a>
         </nav>
 
         <header>
@@ -132,13 +146,13 @@
             <div class="guide-list">
                 <a href="seoul.html" class="guide-card">
                     <h2>Seoul, South Korea</h2>
-                    <p>A comprehensive guide to navigating Korea's capital, from historic palaces to modern districts, with detailed food recommendations.</p>
+                    <p>A comprehensive guide to navigating Korea's capital, from historic palaces to modern districts.</p>
                 </a>
             </div>
         </section>
 
         <footer>
-            <p>Simon Oh</p>
+            <a href="https://sangmino.github.io">Simon Oh</a>
         </footer>
     </div>
 </body>
