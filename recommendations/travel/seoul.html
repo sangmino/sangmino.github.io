@@ -310,6 +310,30 @@
             border-color: var(--color-brand-primary);
         }
 
+        .filter-btn.adjacent {
+            background: #C8E6C9;
+            border-color: #4CAF50;
+            color: #2E7D32;
+        }
+
+        .filter-note {
+            font-size: 0.8rem;
+            color: var(--color-text-muted);
+            margin-top: 8px;
+            display: none;
+        }
+
+        .filter-note .adjacent-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: #C8E6C9;
+            border: 1px solid #4CAF50;
+            border-radius: 2px;
+            vertical-align: middle;
+            margin-right: 4px;
+        }
+
         .filter-btn.clear {
             background: transparent;
             border: none;
@@ -526,6 +550,7 @@
                         <span class="filter-bar-label">Filter by district:</span>
                         <button class="filter-btn active" data-filter="all">All</button>
                     </div>
+                    <p class="filter-note" id="adjacent-note"><span class="adjacent-indicator"></span> Adjacent districts within walkable distances</p>
 
                     <p class="district-description" id="district-desc" style="display: none; margin-bottom: 24px; padding: 16px 20px; background: var(--color-bg-surface); border-left: 3px solid var(--color-brand-primary);"></p>
 
@@ -581,7 +606,7 @@
                         <li data-activities="kculture"><strong>Sinchon</strong> <span class="korean">(신촌)</span>: University district home to Yonsei, Ewha, and Sogang universities. More student-focused than neighboring Hongdae, with affordable restaurants, PC bangs, and late-night study cafes. The main street connects to Ewha Womans University's beautiful campus. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
                         <li data-activities="kculture,nature"><strong>Yeonnam-dong</strong> <span class="korean">(연남동)</span>: Quieter residential area adjacent to Hongdae with trendy cafes, brunch spots, and the popular Gyeongui Line Forest Park, a converted railway turned urban green space. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
                     </ul>
-                    <div class="tip-box" id="jjimjilbang-box">
+                    <div class="tip-box">
                         <h4>Jjimjilbang (찜질방) Culture</h4>
                         <p style="margin-bottom: 12px; font-size: 0.9rem;">Korean bathhouses that combine saunas, hot baths, and communal sleeping areas. Open 24 hours, they're a unique cultural experience and a budget-friendly place to spend the night. Guests wear provided pajamas and can enjoy various heated rooms, snacks, and entertainment.</p>
                         <ul>
@@ -849,6 +874,34 @@
                 'sinsa': '신사 Sinsa'
             };
 
+            // Adjacent districts (walkable distances)
+            const adjacentDistricts = {
+                'jongno': ['jung-gu', 'euljiro', 'seodaemun', 'namsan'],
+                'jung-gu': ['jongno', 'myeongdong', 'euljiro', 'namsan', 'seoul-station'],
+                'seodaemun': ['jongno', 'hongdae', 'yeongdeungpo'],
+                'dongdaemun': ['jongno', 'euljiro', 'seongsu'],
+                'yongsan': ['itaewon', 'hannam', 'namsan', 'seoul-station'],
+                'hannam': ['yongsan', 'itaewon', 'sinsa'],
+                'itaewon': ['yongsan', 'hannam', 'namsan'],
+                'namsan': ['jongno', 'jung-gu', 'yongsan', 'itaewon'],
+                'myeongdong': ['jung-gu', 'euljiro', 'namsan'],
+                'euljiro': ['jongno', 'jung-gu', 'myeongdong', 'dongdaemun'],
+                'seoul-station': ['jung-gu', 'yongsan'],
+                'hongdae': ['seodaemun', 'sangam'],
+                'sangam': ['hongdae'],
+                'yeongdeungpo': ['yeouido', 'seodaemun'],
+                'yeouido': ['yeongdeungpo'],
+                'gangnam': ['sinsa', 'samseong', 'banpo'],
+                'sinsa': ['gangnam', 'hannam'],
+                'samseong': ['gangnam', 'jamsil'],
+                'jamsil': ['samseong', 'songpa'],
+                'songpa': ['jamsil'],
+                'banpo': ['gangnam'],
+                'seongsu': ['dongdaemun', 'konkuk'],
+                'konkuk': ['seongsu'],
+                'bukhansan': []
+            };
+
             const districtDescriptions = {
                 'jongno': 'The historic heart of Seoul, home to the major Joseon-era palaces, traditional markets, and the seat of government. One of the oldest districts, it preserves much of old Seoul while housing modern offices and universities.',
                 'jung-gu': 'Seoul\'s central district containing City Hall, Myeongdong shopping area, and Namdaemun Market. A mix of colonial-era architecture, modern department stores, and traditional markets.',
@@ -896,15 +949,32 @@
             const filterBtns = filterBar.querySelectorAll('.filter-btn');
             const listItems = exploreSection.querySelectorAll('li');
             const districtDescEl = document.getElementById('district-desc');
+            const adjacentNote = document.getElementById('adjacent-note');
             let activeDistrict = 'all';
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
                     activeDistrict = this.getAttribute('data-filter');
 
-                    // Update active button
-                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Update active button and adjacent highlights
+                    filterBtns.forEach(b => {
+                        b.classList.remove('active');
+                        b.classList.remove('adjacent');
+                    });
                     this.classList.add('active');
+
+                    // Highlight adjacent districts
+                    if (activeDistrict !== 'all' && adjacentDistricts[activeDistrict]) {
+                        adjacentDistricts[activeDistrict].forEach(adjDistrict => {
+                            const adjBtn = filterBar.querySelector(`[data-filter="${adjDistrict}"]`);
+                            if (adjBtn) {
+                                adjBtn.classList.add('adjacent');
+                            }
+                        });
+                        adjacentNote.style.display = adjacentDistricts[activeDistrict].length > 0 ? 'block' : 'none';
+                    } else {
+                        adjacentNote.style.display = 'none';
+                    }
 
                     // Show district description
                     if (activeDistrict === 'all') {
@@ -958,13 +1028,19 @@
                     }
                 });
 
-                // Hide jjimjilbang box if no items match
-                const jjimjilbangBox = document.getElementById('jjimjilbang-box');
-                if (jjimjilbangBox) {
-                    const jjimjilbangItems = jjimjilbangBox.querySelectorAll('li');
-                    const visibleJjimjilbang = Array.from(jjimjilbangItems).filter(item => !item.classList.contains('filtered-out'));
-                    jjimjilbangBox.style.display = visibleJjimjilbang.length === 0 ? 'none' : '';
-                }
+                // Hide tip boxes if no items match
+                const tipBoxes = exploreSection.querySelectorAll('.tip-box');
+                tipBoxes.forEach(box => {
+                    const boxItems = box.querySelectorAll('li[data-activities]');
+                    if (boxItems.length > 0) {
+                        // Box has filterable items - hide if none visible
+                        const visibleItems = Array.from(boxItems).filter(item => !item.classList.contains('filtered-out'));
+                        box.style.display = visibleItems.length === 0 ? 'none' : '';
+                    } else {
+                        // Box has no filterable items (like hanbok rental) - always show when activity is 'all', hide otherwise
+                        box.style.display = activeActivity === 'all' ? '' : 'none';
+                    }
+                });
             }
 
             // Click on district tag to filter

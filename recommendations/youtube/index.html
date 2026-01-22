@@ -116,7 +116,7 @@
             padding: 20px;
         }
 
-        .video-card h2 {
+        .video-card h3 {
             font-family: var(--font-serif);
             font-size: 1.1rem;
             font-weight: 500;
@@ -127,6 +127,40 @@
         .video-card p {
             color: var(--color-text-muted);
             font-size: 0.85rem;
+        }
+
+        .category {
+            margin-bottom: 48px;
+        }
+
+        .category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        .type-badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 4px 8px;
+            margin-bottom: 8px;
+            background: var(--color-border-subtle);
+            color: var(--color-text-muted);
+        }
+
+        .type-badge.channel {
+            background: var(--color-brand-primary);
+            color: white;
         }
     </style>
 </head>
@@ -143,30 +177,64 @@
         </header>
 
         <section class="videos">
-            <div class="video-grid">
-                <a href="https://www.youtube.com/watch?v=FgGO7ARzU9U" target="_blank" class="video-card">
-                    <img src="https://img.youtube.com/vi/FgGO7ARzU9U/maxresdefault.jpg" alt="Barack Obama's 2004 DNC Speech" class="video-thumbnail">
-                    <div class="video-info">
-                        <h2>Barack Obama's 2004 DNC Speech</h2>
-                        <p>The keynote address that introduced Obama to the national stage.</p>
-                    </div>
-                </a>
+            <div class="category">
+                <h2>Society</h2>
+                <div class="video-grid">
+                    <a href="https://www.youtube.com/watch?v=FgGO7ARzU9U" target="_blank" class="video-card">
+                        <img src="https://img.youtube.com/vi/FgGO7ARzU9U/maxresdefault.jpg" alt="Barack Obama's 2004 DNC Speech" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="type-badge">Video</span>
+                            <h3>Barack Obama's 2004 DNC Speech</h3>
+                            <p>The keynote address that introduced Obama to the national stage.</p>
+                        </div>
+                    </a>
 
-                <a href="https://www.youtube.com/watch?v=kDMyeGQm3NA" target="_blank" class="video-card">
-                    <img src="https://img.youtube.com/vi/kDMyeGQm3NA/maxresdefault.jpg" alt="Mark Carney at Davos 2026" class="video-thumbnail">
-                    <div class="video-info">
-                        <h2>Mark Carney Speaks at 2026 World Economic Forum in Davos</h2>
-                        <p>Remarks at the World Economic Forum.</p>
-                    </div>
-                </a>
+                    <a href="https://www.youtube.com/watch?v=kDMyeGQm3NA" target="_blank" class="video-card">
+                        <img src="https://img.youtube.com/vi/kDMyeGQm3NA/maxresdefault.jpg" alt="Mark Carney at Davos 2026" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="type-badge">Video</span>
+                            <h3>Mark Carney Speaks at 2026 World Economic Forum in Davos</h3>
+                            <p>Remarks at the World Economic Forum.</p>
+                        </div>
+                    </a>
 
-                <a href="https://www.youtube.com/watch?v=fShjMXWu6kU" target="_blank" class="video-card">
-                    <img src="https://img.youtube.com/vi/fShjMXWu6kU/maxresdefault.jpg" alt="Harry Mack Guerrilla Bars 25" class="video-thumbnail">
-                    <div class="video-info">
-                        <h2>Harry Mack's Prom Night in DC | Guerrilla Bars 25</h2>
-                        <p>Freestyle rap performance from the Guerrilla Bars series.</p>
-                    </div>
-                </a>
+                    <a href="https://www.youtube.com/watch?v=fShjMXWu6kU" target="_blank" class="video-card">
+                        <img src="https://img.youtube.com/vi/fShjMXWu6kU/maxresdefault.jpg" alt="Harry Mack Guerrilla Bars 25" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="type-badge">Video</span>
+                            <h3>Harry Mack's Prom Night in DC | Guerrilla Bars 25</h3>
+                            <p>Freestyle rap performance from the Guerrilla Bars series.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category">
+                <h2>Art</h2>
+                <div class="video-grid">
+                    <a href="https://www.youtube.com/watch?v=lKIbT-4UFaE" target="_blank" class="video-card">
+                        <img src="https://img.youtube.com/vi/lKIbT-4UFaE/maxresdefault.jpg" alt="Nighthawks by Edward Hopper" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="type-badge">Video</span>
+                            <h3>Nighthawks by Edward Hopper: Great Art Explained</h3>
+                            <p>A deep dive into one of America's most iconic paintings.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category">
+                <h2>Knowledge</h2>
+                <div class="video-grid">
+                    <a href="https://www.youtube.com/@3blue1brown/videos" target="_blank" class="video-card">
+                        <img src="https://yt3.googleusercontent.com/ytc/AIdro_mB3rACP546re1RRMT9kXelgm-L-yUXDikNxJ51_wCQSYE=s800-c-k-c0x00ffffff-no-rj" alt="3Blue1Brown" class="video-thumbnail">
+                        <div class="video-info">
+                            <span class="type-badge channel">Channel</span>
+                            <h3>3Blue1Brown</h3>
+                            <p>Animated math explainers that make complex topics intuitive and beautiful.</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </section>
 
