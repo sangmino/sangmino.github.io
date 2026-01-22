@@ -269,7 +269,7 @@
             background: var(--color-bg-surface);
             border: 1px solid var(--color-border-subtle);
             padding: 12px 16px;
-            margin-bottom: 24px;
+            margin-bottom: 16px;
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
@@ -312,6 +312,19 @@
 
         li.filtered-out {
             display: none;
+        }
+
+        /* Activity type tags */
+        .activity-type {
+            display: inline-block;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-size: 0.7em;
+            margin-left: 4px;
+            vertical-align: middle;
+            background: var(--color-bg-surface);
+            color: var(--color-text-muted);
+            border: 1px solid var(--color-border-subtle);
         }
 
         a {
@@ -404,6 +417,7 @@
                 <a href="#tips">Tips</a>
                 <a href="#explore">Explore</a>
                 <div class="sidebar-subsections">
+                    <a href="#activity-filter">Filter by Activity</a>
                     <a href="#district-filter">Filter by District</a>
                 </div>
                 <a href="#eat">Eat</a>
@@ -458,11 +472,12 @@
                         <li>No tipping culture. Tipping can even be considered awkward or offensive.</li>
                     </ul>
                     <div class="tip-box">
-                        <h4>Price Levels (as of 2024)</h4>
+                        <h4>Price Levels (as of 2025)</h4>
                         <ul>
-                            <li>Casual meal: ₩8,000-15,000 ($6-12)</li>
-                            <li>Korean BBQ: ₩20,000-40,000 ($15-30) per person</li>
-                            <li>High-end dining: ₩50,000-100,000+ ($38-75+) per person</li>
+                            <li>Casual meal: ₩10,000-15,000 ($7-11)</li>
+                            <li>Korean BBQ (pork): ₩15,000-25,000 ($11-18) per person</li>
+                            <li>Korean BBQ (beef/hanwoo): ₩35,000-60,000 ($25-45) per person</li>
+                            <li>High-end dining: ₩60,000-120,000+ ($45-90+) per person</li>
                         </ul>
                     </div>
 
@@ -488,6 +503,18 @@
                     <h2>To Explore</h2>
                     <p>The north contains most historical sites, government buildings, and older neighborhoods, while the south houses the modern business districts and entertainment zones. The city's extensive public transportation system, particularly its subway, connects these diverse areas efficiently. Major districts each serve distinct functions: Jongno for history and politics, Gangnam for business, Hongdae for youth culture, and Yeouido for finance.</p>
 
+                    <div class="filter-bar" id="activity-filter">
+                        <span class="filter-bar-label">Filter by activity:</span>
+                        <button class="filter-btn active" data-activity="all">All</button>
+                        <button class="filter-btn" data-activity="historic">Historic</button>
+                        <button class="filter-btn" data-activity="modern">Modern</button>
+                        <button class="filter-btn" data-activity="museum">Museums</button>
+                        <button class="filter-btn" data-activity="nature">Nature</button>
+                        <button class="filter-btn" data-activity="shopping">Shopping</button>
+                        <button class="filter-btn" data-activity="kculture">K-Culture</button>
+                        <button class="filter-btn" data-activity="wellness">Wellness</button>
+                    </div>
+
                     <div class="filter-bar" id="district-filter">
                         <span class="filter-bar-label">Filter by district:</span>
                         <button class="filter-btn active" data-filter="all">All</button>
@@ -497,82 +524,82 @@
 
                     <h3>Historic Seoul</h3>
                     <ul>
-                        <li><strong>Gyeongbokgung Palace</strong> <span class="korean">(경복궁)</span>: Korea's grandest palace, built in 1395 as the main royal palace of the Joseon dynasty. Known for its changing of the guard ceremony and stunning mountain backdrop. Best visited in early morning to avoid crowds. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Changdeokgung Palace</strong> <span class="korean">(창덕궁)</span>: UNESCO site featuring a "Secret Garden" (비원). More intimate than Gyeongbokgung, this palace was the preferred residence of many Joseon kings. Book Secret Garden tours in advance. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Bukchon Hanok Village</strong> <span class="korean">(북촌한옥마을)</span>: A historic neighborhood filled with traditional Korean houses between the two palaces. Best viewed from the elevated spots near Gahoe-dong. Many houses are still private residences. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Jogyesa Temple</strong> <span class="korean">(조계사)</span>: Center of Korean Buddhism, famous for its ancient trees and lantern festival on Buddha's birthday. Offers temple stay programs and regular meditation sessions. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Deoksugung Palace</strong> <span class="korean">(덕수궁)</span>: Known for its unique stone-wall road and mix of traditional Korean and Western architecture. Beautiful when lit up at night. <span class="district" data-district="jung-gu">중구 Jung-gu</span></li>
-                        <li><strong>Unhyeongung Palace</strong> <span class="korean">(운현궁)</span>: Lesser-known palace where Emperor Gojong spent his childhood. More peaceful than main palaces. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Namsangol Hanok Village</strong> <span class="korean">(남산골한옥마을)</span>: Five restored traditional Korean houses at the foot of Namsan Mountain. Offers traditional craft workshops. <span class="district" data-district="jung-gu">중구 Jung-gu</span></li>
-                        <li><strong>Seodaemun Prison History Hall</strong> <span class="korean">(서대문형무소역사관)</span>: Former prison turned museum, important site for understanding Korea's independence movement. <span class="district" data-district="seodaemun">서대문 Seodaemun</span></li>
-                        <li><strong>Bongeunsa Temple</strong> <span class="korean">(봉은사)</span>: Ancient Buddhist temple in modern Gangnam. Striking contrast with COEX building across the street. <span class="district" data-district="gangnam">강남 Gangnam</span></li>
+                        <li data-activities="historic"><strong>Gyeongbokgung Palace</strong> <span class="korean">(경복궁)</span>: Korea's grandest palace, built in 1395 as the main royal palace of the Joseon dynasty. Known for its changing of the guard ceremony and stunning mountain backdrop. Best visited in early morning to avoid crowds. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="historic,nature"><strong>Changdeokgung Palace</strong> <span class="korean">(창덕궁)</span>: UNESCO site featuring a "Secret Garden" (비원). More intimate than Gyeongbokgung, this palace was the preferred residence of many Joseon kings. Book Secret Garden tours in advance. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="historic"><strong>Bukchon Hanok Village</strong> <span class="korean">(북촌한옥마을)</span>: A historic neighborhood filled with traditional Korean houses between the two palaces. Best viewed from the elevated spots near Gahoe-dong. Many houses are still private residences. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="historic,wellness"><strong>Jogyesa Temple</strong> <span class="korean">(조계사)</span>: Center of Korean Buddhism, famous for its ancient trees and lantern festival on Buddha's birthday. Offers temple stay programs and regular meditation sessions. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="historic"><strong>Deoksugung Palace</strong> <span class="korean">(덕수궁)</span>: Known for its unique stone-wall road and mix of traditional Korean and Western architecture. Beautiful when lit up at night. <span class="district" data-district="jung-gu">중구 Jung-gu</span></li>
+                        <li data-activities="historic"><strong>Unhyeongung Palace</strong> <span class="korean">(운현궁)</span>: Lesser-known palace where Emperor Gojong spent his childhood. More peaceful than main palaces. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="historic"><strong>Namsangol Hanok Village</strong> <span class="korean">(남산골한옥마을)</span>: Five restored traditional Korean houses at the foot of Namsan Mountain. Offers traditional craft workshops. <span class="district" data-district="jung-gu">중구 Jung-gu</span></li>
+                        <li data-activities="historic,museum"><strong>Seodaemun Prison History Hall</strong> <span class="korean">(서대문형무소역사관)</span>: Former prison turned museum, important site for understanding Korea's independence movement. <span class="district" data-district="seodaemun">서대문 Seodaemun</span></li>
+                        <li data-activities="historic,wellness"><strong>Bongeunsa Temple</strong> <span class="korean">(봉은사)</span>: Ancient Buddhist temple in modern Gangnam. Striking contrast with COEX building across the street. <span class="district" data-district="gangnam">강남 Gangnam</span></li>
                     </ul>
 
                     <h3>Modern Seoul</h3>
                     <ul>
-                        <li><strong>Dongdaemun Design Plaza</strong> <span class="korean">(동대문디자인플라자)</span>: Zaha Hadid's iconic building, hosts fashion shows and design exhibitions. Spectacular at night with LED roses. <span class="district" data-district="dongdaemun">동대문 Dongdaemun</span></li>
-                        <li><strong>Lotte World Tower</strong> <span class="korean">(롯데월드타워)</span>: Korea's tallest building (123 floors). Glass-floor sky deck offers breathtaking views. Book sunset time slots in advance. <span class="district" data-district="jamsil">잠실 Jamsil</span></li>
-                        <li><strong>Starfield COEX Mall</strong> <span class="korean">(스타필드 코엑스몰)</span>: Massive underground complex with the Instagram-famous Starfield Library. Connected to multiple subway lines and hotels. <span class="district" data-district="samseong">삼성 Samseong</span></li>
-                        <li><strong>Yeouido</strong> <span class="korean">(여의도)</span>: Korea's Wall Street, home to major financial institutions. Best during cherry blossom season or evening river views. <span class="district" data-district="yeouido">여의도 Yeouido</span></li>
-                        <li><strong>Common Ground</strong> <span class="korean">(커먼그라운드)</span>: World's largest container shopping mall, popular with young crowds. <span class="district" data-district="konkuk">건대 Konkuk</span></li>
-                        <li><strong>Gangnam Station Area</strong> <span class="korean">(강남역)</span>: Heart of modern Seoul, endless shopping and dining options. <span class="district" data-district="gangnam">강남 Gangnam</span></li>
-                        <li><strong>Seoul Sky</strong> <span class="korean">(서울스카이)</span>: Observation deck in Lotte World Tower, highest point in Korea. <span class="district" data-district="jamsil">잠실 Jamsil</span></li>
-                        <li><strong>Times Square</strong> <span class="korean">(타임스퀘어)</span>: Massive shopping complex in Yeongdeungpo, modern architecture. <span class="district" data-district="yeongdeungpo">영등포 Yeongdeungpo</span></li>
-                        <li><strong>Sevit Island</strong> <span class="korean">(세빛섬)</span>: Three floating islands on Han River, beautiful night views. <span class="district" data-district="banpo">반포 Banpo</span></li>
+                        <li data-activities="modern,museum"><strong>Dongdaemun Design Plaza</strong> <span class="korean">(동대문디자인플라자)</span>: Zaha Hadid's iconic building, hosts fashion shows and design exhibitions. Spectacular at night with LED roses. <span class="district" data-district="dongdaemun">동대문 Dongdaemun</span></li>
+                        <li data-activities="modern"><strong>Lotte World Tower</strong> <span class="korean">(롯데월드타워)</span>: Korea's tallest building (123 floors). Glass-floor sky deck offers breathtaking views. Book sunset time slots in advance. <span class="district" data-district="jamsil">잠실 Jamsil</span></li>
+                        <li data-activities="modern,shopping"><strong>Starfield COEX Mall</strong> <span class="korean">(스타필드 코엑스몰)</span>: Massive underground complex with the Instagram-famous Starfield Library. Connected to multiple subway lines and hotels. <span class="district" data-district="samseong">삼성 Samseong</span></li>
+                        <li data-activities="modern,nature"><strong>Yeouido</strong> <span class="korean">(여의도)</span>: Korea's Wall Street, home to major financial institutions. Best during cherry blossom season or evening river views. <span class="district" data-district="yeouido">여의도 Yeouido</span></li>
+                        <li data-activities="modern,shopping"><strong>Common Ground</strong> <span class="korean">(커먼그라운드)</span>: World's largest container shopping mall, popular with young crowds. <span class="district" data-district="konkuk">건대 Konkuk</span></li>
+                        <li data-activities="modern,shopping"><strong>Gangnam Station Area</strong> <span class="korean">(강남역)</span>: Heart of modern Seoul, endless shopping and dining options. <span class="district" data-district="gangnam">강남 Gangnam</span></li>
+                        <li data-activities="modern"><strong>Seoul Sky</strong> <span class="korean">(서울스카이)</span>: Observation deck in Lotte World Tower, highest point in Korea. <span class="district" data-district="jamsil">잠실 Jamsil</span></li>
+                        <li data-activities="modern,shopping"><strong>Times Square</strong> <span class="korean">(타임스퀘어)</span>: Massive shopping complex in Yeongdeungpo, modern architecture. <span class="district" data-district="yeongdeungpo">영등포 Yeongdeungpo</span></li>
+                        <li data-activities="modern,nature"><strong>Sevit Island</strong> <span class="korean">(세빛섬)</span>: Three floating islands on Han River, beautiful night views. <span class="district" data-district="banpo">반포 Banpo</span></li>
                     </ul>
 
                     <h3>Cultural Experiences</h3>
                     <ul>
-                        <li><strong>National Museum of Korea</strong> <span class="korean">(국립중앙박물관)</span>: Houses over 330,000 pieces. Free admission, closed Mondays. Plan at least half a day. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
-                        <li><strong>Leeum Museum</strong> <span class="korean">(리움미술관)</span>: Samsung's art museum complex, mixing traditional Korean art with contemporary works. Architecture alone worth the visit. <span class="district" data-district="hannam">한남 Hannam</span></li>
-                        <li><strong>Gwangjang Market</strong> <span class="korean">(광장시장)</span>: Korea's oldest remaining market, famous for bindaetteok (mung bean pancakes) and textile shops. Best experienced during lunch hours. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Insadong</strong> <span class="korean">(인사동)</span>: Traditional culture street, best for souvenirs and tea houses. Visit on Sunday when the main road becomes pedestrian-only. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>National Folk Museum</strong> <span class="korean">(국립민속박물관)</span>: Located inside Gyeongbokgung, excellent for understanding daily life in historical Korea. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>War Memorial of Korea</strong> <span class="korean">(전쟁기념관)</span>: Comprehensive museum about Korean War. Free admission, impressive outdoor exhibition. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
-                        <li><strong>Seoul Museum of History</strong> <span class="korean">(서울역사박물관)</span>: Chronicles Seoul's transformation from ancient times. Good introduction to city's development. <span class="district" data-district="jongno">종로 Jongno</span></li>
-                        <li><strong>Dongdaemun Market</strong> <span class="korean">(동대문시장)</span>: 24-hour shopping district, especially for textiles and fashion. <span class="district" data-district="dongdaemun">동대문 Dongdaemun</span></li>
-                        <li><strong>Bukchon Cultural Center</strong> <span class="korean">(북촌문화센터)</span>: Offers hands-on traditional Korean cultural experiences. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="museum"><strong>National Museum of Korea</strong> <span class="korean">(국립중앙박물관)</span>: Houses over 330,000 pieces. Free admission, closed Mondays. Plan at least half a day. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
+                        <li data-activities="museum"><strong>Leeum Museum</strong> <span class="korean">(리움미술관)</span>: Samsung's art museum complex, mixing traditional Korean art with contemporary works. Architecture alone worth the visit. <span class="district" data-district="hannam">한남 Hannam</span></li>
+                        <li data-activities="shopping,historic"><strong>Gwangjang Market</strong> <span class="korean">(광장시장)</span>: Korea's oldest remaining market, famous for bindaetteok (mung bean pancakes) and textile shops. Best experienced during lunch hours. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="shopping,historic"><strong>Insadong</strong> <span class="korean">(인사동)</span>: Traditional culture street, best for souvenirs and tea houses. Visit on Sunday when the main road becomes pedestrian-only. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="museum"><strong>National Folk Museum</strong> <span class="korean">(국립민속박물관)</span>: Located inside Gyeongbokgung, excellent for understanding daily life in historical Korea. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="museum"><strong>War Memorial of Korea</strong> <span class="korean">(전쟁기념관)</span>: Comprehensive museum about Korean War. Free admission, impressive outdoor exhibition. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
+                        <li data-activities="museum"><strong>Seoul Museum of History</strong> <span class="korean">(서울역사박물관)</span>: Chronicles Seoul's transformation from ancient times. Good introduction to city's development. <span class="district" data-district="jongno">종로 Jongno</span></li>
+                        <li data-activities="shopping"><strong>Dongdaemun Market</strong> <span class="korean">(동대문시장)</span>: 24-hour shopping district, especially for textiles and fashion. <span class="district" data-district="dongdaemun">동대문 Dongdaemun</span></li>
+                        <li data-activities="historic"><strong>Bukchon Cultural Center</strong> <span class="korean">(북촌문화센터)</span>: Offers hands-on traditional Korean cultural experiences. <span class="district" data-district="jongno">종로 Jongno</span></li>
                     </ul>
 
                     <h3>K-Culture & Entertainment</h3>
                     <ul>
-                        <li><strong>SM COEX Artium</strong> <span class="korean">(에스엠코엑스아티움)</span>: K-pop entertainment company's exhibition space and merchandise store. Live hologram concerts and interactive exhibits featuring popular SM artists. <span class="district" data-district="samseong">삼성 Samseong</span></li>
-                        <li><strong>Hybe Insight</strong> <span class="korean">(하이브 인사이트)</span>: BTS's entertainment company's museum. Interactive music experiences and behind-the-scenes exhibits of K-pop production. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
-                        <li><strong>K-Star Road</strong> <span class="korean">(케이스타로드)</span>: Street in Gangnam featuring K-pop agencies and giant bear statues representing different K-pop groups. <span class="district" data-district="gangnam">강남 Gangnam</span></li>
-                        <li><strong>MBC World</strong> <span class="korean">(MBC월드)</span>: Broadcasting station theme park with virtual reality experiences and K-drama sets. <span class="district" data-district="sangam">상암 Sangam</span></li>
-                        <li><strong>Hongdae</strong> <span class="korean">(홍대)</span>: Seoul's youth culture hub near Hongik University, known for street performances, K-pop dance busking, indie music venues, and art galleries. The area around "Hongdae Playground" comes alive at night with buskers and dancers. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
-                        <li><strong>Sinchon</strong> <span class="korean">(신촌)</span>: University district home to Yonsei, Ewha, and Sogang universities. More student-focused than neighboring Hongdae, with affordable restaurants, PC bangs, and late-night study cafes. The main street connects to Ewha Womans University's beautiful campus. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
-                        <li><strong>Yeonnam-dong</strong> <span class="korean">(연남동)</span>: Quieter residential area adjacent to Hongdae with trendy cafes, brunch spots, and the popular Gyeongui Line Forest Park, a converted railway turned urban green space. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
+                        <li data-activities="kculture,museum"><strong>SM COEX Artium</strong> <span class="korean">(에스엠코엑스아티움)</span>: K-pop entertainment company's exhibition space and merchandise store. Live hologram concerts and interactive exhibits featuring popular SM artists. <span class="district" data-district="samseong">삼성 Samseong</span></li>
+                        <li data-activities="kculture,museum"><strong>Hybe Insight</strong> <span class="korean">(하이브 인사이트)</span>: BTS's entertainment company's museum. Interactive music experiences and behind-the-scenes exhibits of K-pop production. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
+                        <li data-activities="kculture"><strong>K-Star Road</strong> <span class="korean">(케이스타로드)</span>: Street in Gangnam featuring K-pop agencies and giant bear statues representing different K-pop groups. <span class="district" data-district="gangnam">강남 Gangnam</span></li>
+                        <li data-activities="kculture"><strong>MBC World</strong> <span class="korean">(MBC월드)</span>: Broadcasting station theme park with virtual reality experiences and K-drama sets. <span class="district" data-district="sangam">상암 Sangam</span></li>
+                        <li data-activities="kculture,shopping"><strong>Hongdae</strong> <span class="korean">(홍대)</span>: Seoul's youth culture hub near Hongik University, known for street performances, K-pop dance busking, indie music venues, and art galleries. The area around "Hongdae Playground" comes alive at night with buskers and dancers. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
+                        <li data-activities="kculture"><strong>Sinchon</strong> <span class="korean">(신촌)</span>: University district home to Yonsei, Ewha, and Sogang universities. More student-focused than neighboring Hongdae, with affordable restaurants, PC bangs, and late-night study cafes. The main street connects to Ewha Womans University's beautiful campus. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
+                        <li data-activities="kculture,nature"><strong>Yeonnam-dong</strong> <span class="korean">(연남동)</span>: Quieter residential area adjacent to Hongdae with trendy cafes, brunch spots, and the popular Gyeongui Line Forest Park, a converted railway turned urban green space. <span class="district" data-district="hongdae">홍대/신촌 Hongdae</span></li>
                     </ul>
                     <div class="tip-box" id="jjimjilbang-box">
                         <h4>Jjimjilbang (찜질방) Culture</h4>
                         <p style="margin-bottom: 12px; font-size: 0.9rem;">Korean bathhouses that combine saunas, hot baths, and communal sleeping areas. Open 24 hours, they're a unique cultural experience and a budget-friendly place to spend the night. Guests wear provided pajamas and can enjoy various heated rooms, snacks, and entertainment.</p>
                         <ul>
-                            <li><strong>Dragon Hill Spa</strong> <span class="korean">(드래곤힐스파)</span>: Most foreigner-friendly, with multiple themed rooms and outdoor pools. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
-                            <li><strong>Siloam Sauna</strong> <span class="korean">(실로암사우나)</span>: Local favorite near Seoul Station, more authentic experience. <span class="district" data-district="seoul-station">서울역 Seoul Station</span></li>
-                            <li><strong>Spaland COEX</strong> <span class="korean">(스파랜드)</span>: Upscale option with premium facilities and quieter atmosphere. <span class="district" data-district="samseong">삼성 Samseong</span></li>
+                            <li data-activities="wellness"><strong>Dragon Hill Spa</strong> <span class="korean">(드래곤힐스파)</span>: Most foreigner-friendly, with multiple themed rooms and outdoor pools. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
+                            <li data-activities="wellness"><strong>Siloam Sauna</strong> <span class="korean">(실로암사우나)</span>: Local favorite near Seoul Station, more authentic experience. <span class="district" data-district="seoul-station">서울역 Seoul Station</span></li>
+                            <li data-activities="wellness"><strong>Spaland COEX</strong> <span class="korean">(스파랜드)</span>: Upscale option with premium facilities and quieter atmosphere. <span class="district" data-district="samseong">삼성 Samseong</span></li>
                         </ul>
                     </div>
 
                     <h3>Nature and City Views</h3>
                     <ul>
-                        <li><strong>Namsan Seoul Tower</strong> <span class="korean">(남산서울타워)</span>: Iconic tower with citywide views. Popular for its "love locks" and cable car ride. <span class="district" data-district="namsan">남산 Namsan</span></li>
-                        <li><strong>Seoul Forest</strong> <span class="korean">(서울숲)</span>: Seoul's answer to Central Park. Beautiful in spring and fall, has deer enclosure. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
-                        <li><strong>Han River Parks</strong> <span class="korean">(한강공원)</span>:
+                        <li data-activities="nature"><strong>Namsan Seoul Tower</strong> <span class="korean">(남산서울타워)</span>: Iconic tower with citywide views. Popular for its "love locks" and cable car ride. <span class="district" data-district="namsan">남산 Namsan</span></li>
+                        <li data-activities="nature"><strong>Seoul Forest</strong> <span class="korean">(서울숲)</span>: Seoul's answer to Central Park. Beautiful in spring and fall, has deer enclosure. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
+                        <li data-activities="nature"><strong>Han River Parks</strong> <span class="korean">(한강공원)</span>:
                             <ul>
-                                <li>Yeouido Hangang Park <span class="korean">(여의도한강공원)</span>: Most popular, great for picnics. <span class="district" data-district="yeouido">여의도 Yeouido</span></li>
-                                <li>Banpo Hangang Park <span class="korean">(반포한강공원)</span>: Famous for Rainbow Fountain Bridge. <span class="district" data-district="banpo">반포 Banpo</span></li>
-                                <li>Ttukseom Hangang Park <span class="korean">(뚝섬한강공원)</span>: Water sports and youth culture. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
+                                <li data-activities="nature">Yeouido Hangang Park <span class="korean">(여의도한강공원)</span>: Most popular, great for picnics. <span class="district" data-district="yeouido">여의도 Yeouido</span></li>
+                                <li data-activities="nature">Banpo Hangang Park <span class="korean">(반포한강공원)</span>: Famous for Rainbow Fountain Bridge. <span class="district" data-district="banpo">반포 Banpo</span></li>
+                                <li data-activities="nature">Ttukseom Hangang Park <span class="korean">(뚝섬한강공원)</span>: Water sports and youth culture. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
                             </ul>
                         </li>
-                        <li><strong>Bukhansan National Park</strong> <span class="korean">(북한산국립공원)</span>: Mountain hiking within city limits, spectacular views of Seoul. <span class="district" data-district="bukhansan">북한산 Bukhansan</span></li>
+                        <li data-activities="nature"><strong>Bukhansan National Park</strong> <span class="korean">(북한산국립공원)</span>: Mountain hiking within city limits, spectacular views of Seoul. <span class="district" data-district="bukhansan">북한산 Bukhansan</span></li>
                     </ul>
 
                     <h3>Trendy Neighborhoods</h3>
                     <ul>
-                        <li><strong>Seongsu-dong</strong> <span class="korean">(성수동)</span>: "Brooklyn of Seoul." Industrial buildings converted to cafes, art galleries, and independent fashion brands. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
-                        <li><strong>Euljiro</strong> <span class="korean">(을지로)</span>: Retro vibes. Hidden bars in old printing shops, industrial aesthetic cafes, and traditional mom-and-pop shops. <span class="district" data-district="euljiro">을지로 Euljiro</span></li>
-                        <li><strong>Garosu-gil</strong> <span class="korean">(가로수길)</span>: Trendy shopping street with designer boutiques, Instagram-worthy cafes, and beauty shops. <span class="district" data-district="sinsa">신사 Sinsa</span></li>
+                        <li data-activities="shopping,modern"><strong>Seongsu-dong</strong> <span class="korean">(성수동)</span>: "Brooklyn of Seoul." Industrial buildings converted to cafes, art galleries, and independent fashion brands. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
+                        <li data-activities="shopping,historic"><strong>Euljiro</strong> <span class="korean">(을지로)</span>: Retro vibes. Hidden bars in old printing shops, industrial aesthetic cafes, and traditional mom-and-pop shops. <span class="district" data-district="euljiro">을지로 Euljiro</span></li>
+                        <li data-activities="shopping"><strong>Garosu-gil</strong> <span class="korean">(가로수길)</span>: Trendy shopping street with designer boutiques, Instagram-worthy cafes, and beauty shops. <span class="district" data-district="sinsa">신사 Sinsa</span></li>
                     </ul>
                 </section>
 
@@ -738,6 +765,23 @@
                 });
             });
 
+            // Activity filtering
+            const activityFilterBar = document.getElementById('activity-filter');
+            const activityBtns = activityFilterBar.querySelectorAll('.filter-btn');
+            let activeActivity = 'all';
+
+            activityBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    activeActivity = this.getAttribute('data-activity');
+
+                    // Update active button
+                    activityBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    applyFilters();
+                });
+            });
+
             // District filtering
             const filterBar = document.getElementById('district-filter');
             const exploreSection = document.getElementById('explore');
@@ -813,60 +857,76 @@
             const filterBtns = filterBar.querySelectorAll('.filter-btn');
             const listItems = exploreSection.querySelectorAll('li');
             const districtDescEl = document.getElementById('district-desc');
+            let activeDistrict = 'all';
 
             filterBtns.forEach(btn => {
                 btn.addEventListener('click', function() {
-                    const filter = this.getAttribute('data-filter');
+                    activeDistrict = this.getAttribute('data-filter');
 
                     // Update active button
                     filterBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
 
                     // Show district description
-                    if (filter === 'all') {
+                    if (activeDistrict === 'all') {
                         districtDescEl.style.display = 'none';
-                    } else if (districtDescriptions[filter]) {
-                        districtDescEl.textContent = districtDescriptions[filter];
+                    } else if (districtDescriptions[activeDistrict]) {
+                        districtDescEl.textContent = districtDescriptions[activeDistrict];
                         districtDescEl.style.display = 'block';
                     }
 
-                    // Filter items
-                    listItems.forEach(item => {
-                        const districtSpan = item.querySelector('.district[data-district]');
-                        if (filter === 'all') {
-                            item.classList.remove('filtered-out');
-                        } else if (districtSpan && districtSpan.getAttribute('data-district') === filter) {
-                            item.classList.remove('filtered-out');
-                        } else if (districtSpan) {
-                            item.classList.add('filtered-out');
-                        }
-                    });
-
-                    // Hide empty sections
-                    const sections = exploreSection.querySelectorAll('h3');
-                    sections.forEach(h3 => {
-                        const ul = h3.nextElementSibling;
-                        if (ul && ul.tagName === 'UL') {
-                            const visibleItems = ul.querySelectorAll('li:not(.filtered-out)');
-                            if (visibleItems.length === 0) {
-                                h3.style.display = 'none';
-                                ul.style.display = 'none';
-                            } else {
-                                h3.style.display = '';
-                                ul.style.display = '';
-                            }
-                        }
-                    });
-
-                    // Hide jjimjilbang box if no items match
-                    const jjimjilbangBox = document.getElementById('jjimjilbang-box');
-                    if (jjimjilbangBox) {
-                        const jjimjilbangItems = jjimjilbangBox.querySelectorAll('li');
-                        const visibleJjimjilbang = Array.from(jjimjilbangItems).filter(item => !item.classList.contains('filtered-out'));
-                        jjimjilbangBox.style.display = visibleJjimjilbang.length === 0 ? 'none' : '';
-                    }
+                    applyFilters();
                 });
             });
+
+            // Combined filter function
+            function applyFilters() {
+                listItems.forEach(item => {
+                    const districtSpan = item.querySelector('.district[data-district]');
+                    const activities = item.getAttribute('data-activities');
+
+                    let matchesDistrict = activeDistrict === 'all' ||
+                        (districtSpan && districtSpan.getAttribute('data-district') === activeDistrict);
+
+                    let matchesActivity = activeActivity === 'all' ||
+                        (activities && activities.split(',').includes(activeActivity));
+
+                    // For items without district spans (like nested li), check parent
+                    if (!districtSpan && item.closest('li[data-activities]')) {
+                        matchesDistrict = true; // Nested items inherit from parent
+                    }
+
+                    if (matchesDistrict && matchesActivity) {
+                        item.classList.remove('filtered-out');
+                    } else {
+                        item.classList.add('filtered-out');
+                    }
+                });
+
+                // Hide empty sections
+                const sections = exploreSection.querySelectorAll('h3');
+                sections.forEach(h3 => {
+                    const ul = h3.nextElementSibling;
+                    if (ul && ul.tagName === 'UL') {
+                        const visibleItems = ul.querySelectorAll(':scope > li:not(.filtered-out)');
+                        if (visibleItems.length === 0) {
+                            h3.style.display = 'none';
+                            ul.style.display = 'none';
+                        } else {
+                            h3.style.display = '';
+                            ul.style.display = '';
+                        }
+                    }
+                });
+
+                // Hide jjimjilbang box if no items match
+                const jjimjilbangBox = document.getElementById('jjimjilbang-box');
+                if (jjimjilbangBox) {
+                    const jjimjilbangItems = jjimjilbangBox.querySelectorAll('li');
+                    const visibleJjimjilbang = Array.from(jjimjilbangItems).filter(item => !item.classList.contains('filtered-out'));
+                    jjimjilbangBox.style.display = visibleJjimjilbang.length === 0 ? 'none' : '';
+                }
+            }
 
             // Click on district tag to filter
             districtSpans.forEach(span => {
