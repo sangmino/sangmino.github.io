@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube - Simon's Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-brand-primary: #6F7F99;
+            --color-brand-hover: #5A6675;
+            --color-bg-paper: #F9F9F5;
+            --color-bg-surface: #F2F0E8;
+            --color-text-main: #2A2F36;
+            --color-text-muted: #666A70;
+            --color-border-subtle: #E0DFD5;
+            --font-serif: 'Newsreader', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg-paper);
+            color: var(--color-text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border-subtle);
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--color-brand-primary);
+        }
+
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+        }
+
+        .videos {
+            padding: 48px 0;
+        }
+
+        .video-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .video-card {
+            display: block;
+            background: var(--color-bg-surface);
+            border: 1px solid var(--color-border-subtle);
+            padding: 28px 32px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .video-card:hover {
+            border-color: var(--color-brand-primary);
+        }
+
+        .video-card h2 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .video-card p {
+            color: var(--color-text-muted);
+            font-size: 0.95rem;
+        }
+
+        .video-card .meta {
+            margin-top: 12px;
+            font-size: 0.85rem;
+            color: var(--color-brand-primary);
+        }
+
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--color-border-subtle);
+            text-align: center;
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: var(--color-brand-primary);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <a href="../index.html">Back to Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>YouTube</h1>
+            <p class="subtitle">Videos and channels worth watching.</p>
+        </header>
+
+        <section class="videos">
+            <div class="video-list">
+                <a href="https://www.youtube.com/watch?v=ueMNqdB1QIE" class="video-card" target="_blank" rel="noopener">
+                    <h2>Barack Obama - 2004 Democratic National Convention Keynote</h2>
+                    <p>The speech that introduced Obama to the national stage. A masterclass in political oratory and the articulation of American ideals.</p>
+                    <span class="meta">Speech</span>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=QZ-ajqKVfek" class="video-card" target="_blank" rel="noopener">
+                    <h2>Mark Carney - Davos 2025</h2>
+                    <p>Mark Carney's address at the World Economic Forum in Davos.</p>
+                    <span class="meta">Speech</span>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=bwH8SM93W6Q" class="video-card" target="_blank" rel="noopener">
+                    <h2>Harry Mack - Freestyle in Washington D.C.</h2>
+                    <p>Harry Mack delivers an incredible freestyle session on the streets of D.C., creating lyrics on the spot using words from passersby.</p>
+                    <span class="meta">Music / Freestyle</span>
+                </a>
+            </div>
+        </section>
+
+        <footer>
+            <a href="https://sangmino.github.io">Simon Oh</a>
+        </footer>
+    </div>
+</body>
+</html>
