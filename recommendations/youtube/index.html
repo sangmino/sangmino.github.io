@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Travel - Simon's Recommendations</title>
+    <title>YouTube - Simon's Recommendations</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
@@ -42,6 +42,9 @@
         nav {
             padding: 20px 0;
             border-bottom: 1px solid var(--color-border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         nav a {
@@ -52,6 +55,11 @@
 
         nav a:hover {
             color: var(--color-brand-primary);
+        }
+
+        .author-info {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
         }
 
         header {
@@ -72,17 +80,17 @@
             font-size: 1.05rem;
         }
 
-        .guides {
+        .videos {
             padding: 48px 0;
         }
 
-        .guide-list {
+        .video-list {
             display: flex;
             flex-direction: column;
             gap: 20px;
         }
 
-        .guide-card {
+        .video-card {
             display: block;
             background: var(--color-bg-surface);
             border: 1px solid var(--color-border-subtle);
@@ -92,31 +100,20 @@
             transition: all 0.2s ease;
         }
 
-        .guide-card:hover {
+        .video-card:hover {
             border-color: var(--color-brand-primary);
         }
 
-        .guide-card h2 {
+        .video-card h2 {
             font-family: var(--font-serif);
             font-size: 1.4rem;
             font-weight: 500;
             margin-bottom: 8px;
         }
 
-        .guide-card p {
+        .video-card p {
             color: var(--color-text-muted);
             font-size: 0.95rem;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .author-info {
-            color: var(--color-text-muted);
-            font-size: 0.9rem;
         }
     </style>
 </head>
@@ -128,15 +125,25 @@
         </nav>
 
         <header>
-            <h1>Travel</h1>
-            <p class="subtitle">City guides, tips, and favorite spots from around the world.</p>
+            <h1>YouTube</h1>
+            <p class="subtitle">Videos and channels worth watching.</p>
         </header>
 
-        <section class="guides">
-            <div class="guide-list">
-                <a href="seoul.html" class="guide-card">
-                    <h2>Seoul, South Korea</h2>
-                    <p>A comprehensive guide to navigating Korea's capital, from historic palaces to modern districts.</p>
+        <section class="videos">
+            <div class="video-list">
+                <a href="https://www.youtube.com/watch?v=FgGO7ARzU9U" target="_blank" class="video-card">
+                    <h2>Barack Obama's 2004 DNC Speech</h2>
+                    <p>The keynote address that introduced Obama to the national stage.</p>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=kDMyeGQm3NA" target="_blank" class="video-card">
+                    <h2>Mark Carney Speaks at 2026 World Economic Forum in Davos</h2>
+                    <p>Remarks at the World Economic Forum.</p>
+                </a>
+
+                <a href="https://www.youtube.com/watch?v=fShjMXWu6kU" target="_blank" class="video-card">
+                    <h2>Harry Mack's Prom Night in DC | Guerrilla Bars 25</h2>
+                    <p>Freestyle rap performance from the Guerrilla Bars series.</p>
                 </a>
             </div>
         </section>
