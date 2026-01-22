@@ -258,11 +258,18 @@
         /* Sinsa/Apgujeong (soft pink) */
         .district[data-district="sinsa"] { background: #E8D8DC; color: #6B4450; border: 1px solid #D9C4CA; }
 
+        /* Itaewon area (warm orange) */
+        .district[data-district="itaewon"] { background: #E8DCD4; color: #6B5044; border: 1px solid #D9C8B8; }
+
+        /* Myeongdong/Central shopping (coral) */
+        .district[data-district="myeongdong"] { background: #E8D8D8; color: #6B4848; border: 1px solid #D9C4C4; }
+
         /* Other */
         .district[data-district="euljiro"] { background: #E0DCDC; color: #5A5454; border: 1px solid #CCC6C6; }
         .district[data-district="sangam"] { background: #DCE0DC; color: #4A5A4A; border: 1px solid #C5CCC5; }
         .district[data-district="seoul-station"] { background: #E0DCDC; color: #5A5050; border: 1px solid #CCC4C4; }
         .district[data-district="bukhansan"] { background: #D0E5D4; color: #3D6B44; border: 1px solid #B3D9B8; }
+        .district[data-district="songpa"] { background: #D4DCE8; color: #44526B; border: 1px solid #B8C8D9; }
 
         /* Filter bar */
         .filter-bar {
@@ -546,6 +553,8 @@
                         <li data-activities="modern"><strong>Seoul Sky</strong> <span class="korean">(서울스카이)</span>: Observation deck in Lotte World Tower, highest point in Korea. <span class="district" data-district="jamsil">잠실 Jamsil</span></li>
                         <li data-activities="modern,shopping"><strong>Times Square</strong> <span class="korean">(타임스퀘어)</span>: Massive shopping complex in Yeongdeungpo, modern architecture. <span class="district" data-district="yeongdeungpo">영등포 Yeongdeungpo</span></li>
                         <li data-activities="modern,nature"><strong>Sevit Island</strong> <span class="korean">(세빛섬)</span>: Three floating islands on Han River, beautiful night views. <span class="district" data-district="banpo">반포 Banpo</span></li>
+                        <li data-activities="modern,kculture"><strong>Lotte World</strong> <span class="korean">(롯데월드)</span>: Major indoor/outdoor theme park with rides, ice skating, and Folk Museum. Connected to Lotte World Tower and aquarium. <span class="district" data-district="jamsil">잠실 Jamsil</span></li>
+                        <li data-activities="modern,nature,kculture"><strong>Olympic Park</strong> <span class="korean">(올림픽공원)</span>: Built for 1988 Olympics, now a popular venue for K-pop concerts. Features sculpture gardens, sports facilities, and SOMA art museum. <span class="district" data-district="songpa">송파 Songpa</span></li>
                     </ul>
 
                     <h3>Cultural Experiences</h3>
@@ -558,6 +567,7 @@
                         <li data-activities="museum"><strong>War Memorial of Korea</strong> <span class="korean">(전쟁기념관)</span>: Comprehensive museum about Korean War. Free admission, impressive outdoor exhibition. <span class="district" data-district="yongsan">용산 Yongsan</span></li>
                         <li data-activities="museum"><strong>Seoul Museum of History</strong> <span class="korean">(서울역사박물관)</span>: Chronicles Seoul's transformation from ancient times. Good introduction to city's development. <span class="district" data-district="jongno">종로 Jongno</span></li>
                         <li data-activities="shopping"><strong>Dongdaemun Market</strong> <span class="korean">(동대문시장)</span>: 24-hour shopping district, especially for textiles and fashion. <span class="district" data-district="dongdaemun">동대문 Dongdaemun</span></li>
+                        <li data-activities="shopping,historic"><strong>Namdaemun Market</strong> <span class="korean">(남대문시장)</span>: One of Korea's oldest and largest traditional markets, selling everything from food to clothing to kitchenware. Famous for galchi-jorim (braised cutlassfish) alley. <span class="district" data-district="jung-gu">중구 Jung-gu</span></li>
                         <li data-activities="historic"><strong>Bukchon Cultural Center</strong> <span class="korean">(북촌문화센터)</span>: Offers hands-on traditional Korean cultural experiences. <span class="district" data-district="jongno">종로 Jongno</span></li>
                     </ul>
 
@@ -581,6 +591,20 @@
                         </ul>
                     </div>
 
+                    <div class="tip-box">
+                        <h4>Hanbok Rental (한복 대여)</h4>
+                        <p style="margin-bottom: 12px; font-size: 0.9rem;">Renting traditional Korean clothing (hanbok) is popular for palace visits. Many rental shops near Gyeongbokgung and Bukchon offer 2-4 hour rentals (₩15,000-30,000) with hair styling. Wearing hanbok grants free admission to major palaces. Book ahead during peak seasons.</p>
+                    </div>
+
+                    <div class="tip-box">
+                        <h4>Korean Entertainment Culture</h4>
+                        <p style="margin-bottom: 12px; font-size: 0.9rem;">Experience how Koreans socialize and unwind:</p>
+                        <ul>
+                            <li data-activities="kculture"><strong>Noraebang</strong> <span class="korean">(노래방)</span>: Private karaoke rooms where groups rent rooms by the hour (₩15,000-30,000/hr). Available 24 hours, often with tambourines and disco lights. Coin noraebang (동전노래방) offers budget solo singing.</li>
+                            <li data-activities="kculture"><strong>PC Bang</strong> <span class="korean">(PC방)</span>: Gaming cafes with high-end computers, comfortable chairs, and food service. Around ₩1,500-2,000/hour. Experience Korea's esports culture firsthand. Found everywhere, open 24 hours.</li>
+                        </ul>
+                    </div>
+
                     <h3>Nature and City Views</h3>
                     <ul>
                         <li data-activities="nature"><strong>Namsan Seoul Tower</strong> <span class="korean">(남산서울타워)</span>: Iconic tower with citywide views. Popular for its "love locks" and cable car ride. <span class="district" data-district="namsan">남산 Namsan</span></li>
@@ -593,6 +617,7 @@
                             </ul>
                         </li>
                         <li data-activities="nature"><strong>Bukhansan National Park</strong> <span class="korean">(북한산국립공원)</span>: Mountain hiking within city limits, spectacular views of Seoul. <span class="district" data-district="bukhansan">북한산 Bukhansan</span></li>
+                        <li data-activities="nature,modern"><strong>Cheonggyecheon Stream</strong> <span class="korean">(청계천)</span>: Restored 11km urban stream running through downtown. Popular walking path with art installations, especially beautiful at night. Starts near Gwanghwamun. <span class="district" data-district="jongno">종로 Jongno</span></li>
                     </ul>
 
                     <h3>Trendy Neighborhoods</h3>
@@ -600,6 +625,8 @@
                         <li data-activities="shopping,modern"><strong>Seongsu-dong</strong> <span class="korean">(성수동)</span>: "Brooklyn of Seoul." Industrial buildings converted to cafes, art galleries, and independent fashion brands. <span class="district" data-district="seongsu">성수 Seongsu</span></li>
                         <li data-activities="shopping,historic"><strong>Euljiro</strong> <span class="korean">(을지로)</span>: Retro vibes. Hidden bars in old printing shops, industrial aesthetic cafes, and traditional mom-and-pop shops. <span class="district" data-district="euljiro">을지로 Euljiro</span></li>
                         <li data-activities="shopping"><strong>Garosu-gil</strong> <span class="korean">(가로수길)</span>: Trendy shopping street with designer boutiques, Instagram-worthy cafes, and beauty shops. <span class="district" data-district="sinsa">신사 Sinsa</span></li>
+                        <li data-activities="shopping,kculture"><strong>Itaewon</strong> <span class="korean">(이태원)</span>: Seoul's most international district. Diverse food scene, craft beer bars, vintage shops, and LGBTQ+ friendly Homo Hill. Adjacent Gyeongnidan-gil has trendy cafes and restaurants. <span class="district" data-district="itaewon">이태원 Itaewon</span></li>
+                        <li data-activities="shopping"><strong>Myeongdong</strong> <span class="korean">(명동)</span>: Korea's biggest shopping and beauty district. Wall-to-wall cosmetics stores, street food stalls, and department stores. Crowded but essential for K-beauty shopping. <span class="district" data-district="myeongdong">명동 Myeongdong</span></li>
                     </ul>
                 </section>
 
@@ -614,7 +641,7 @@
 
                     <h3 id="pork">Pork</h3>
                     <p>Korean pork culture centers around samgyeopsal <span class="korean">(삼겹살, grilled pork belly)</span>, a national favorite that's as much about the communal dining experience as the meat itself. The most prized variety is Jeju Black Pork, raised on Jeju Island, known for its exceptional marbling and clean taste.</p>
-                    <p>Beyond grilled preparations, Koreans are famous for their braised pork dishes like galbijjim <span class="korean">(갈비찜)</span> and bold, spicy creations like jeyuk-bokkeum <span class="korean">(제육볶음)</span>.</p>
+                    <p>Beyond grilled preparations, Koreans excel at braised and boiled pork dishes. Jokbal <span class="korean">(족발, braised pig's feet)</span> features tender, gelatinous meat in a soy-based sauce, popular as drinking food. Bossam <span class="korean">(보쌈, boiled pork wraps)</span> pairs sliced pork belly with kimchi and raw garlic in lettuce or perilla leaves. Dwaeji-gukbap <span class="korean">(돼지국밥, pork soup with rice)</span> is a hearty, comforting dish originating from Busan. And don't miss jeyuk-bokkeum <span class="korean">(제육볶음)</span>, spicy stir-fried pork that's a lunch staple.</p>
 
                     <h3 id="beef">Beef</h3>
                     <p>Korean beef, or hanwoo <span class="korean">(한우)</span>, is celebrated for its exceptional marbling and deep flavor profile, rivaling Japan's wagyu. The grading system (1++ being the highest) reflects the intense focus on quality. Korean beef culture emphasizes minimal seasoning, often just salt and sesame oil, to highlight the meat's natural flavors.</p>
@@ -622,7 +649,7 @@
 
                     <h3 id="chicken">Chicken</h3>
                     <p>Korean chicken preparation balances two distinct traditions: the ancient (medical food like samgyetang, <span class="korean">삼계탕</span>, ginseng chicken soup) and the modern (Korean fried chicken culture).</p>
-                    <p>Korean fried chicken, or chimaek <span class="korean">(치맥, chicken and beer)</span>, represents a post-war innovation that's become a global phenomenon, known for its ultra-crispy double-fried technique and variety of glazes. The country's chicken dishes often incorporate ginseng, garlic, and medicinal herbs, reflecting traditional Korean medical theories.</p>
+                    <p>Korean fried chicken, or chimaek <span class="korean">(치맥, chicken and beer)</span>, represents a post-war innovation that's become a global phenomenon, known for its ultra-crispy double-fried technique and variety of glazes. Dakgalbi <span class="korean">(닭갈비)</span>, spicy stir-fried chicken with vegetables and rice cakes, is a Chuncheon specialty now popular throughout Seoul. The country's chicken dishes often incorporate ginseng, garlic, and medicinal herbs, reflecting traditional Korean medical theories.</p>
 
                     <h3 id="seafood">Seafood</h3>
                     <p>As a peninsula, Korea's seafood cuisine reflects its three-sided coastal geography. The country is particularly famous for its hwe <span class="korean">(회, raw fish)</span>, seafood stews like haemultang <span class="korean">(해물탕)</span>, and fermented preparations like jeotgal <span class="korean">(젓갈)</span>.</p>
@@ -649,6 +676,7 @@
                         <li><strong>Naengmyeon</strong> <span class="korean">(냉면)</span>: Cold buckwheat noodles in beef broth (mul-naengmyeon) or spicy sauce (bibim-naengmyeon). Topped with sliced pear, cucumber, and egg.</li>
                         <li><strong>Japchae</strong> <span class="korean">(잡채)</span>: Sweet potato noodles stir-fried with vegetables and meat. Common holiday dish.</li>
                         <li><strong>Kalguksu</strong> <span class="korean">(칼국수)</span>: Hand-cut wheat noodles in rich chicken or seafood broth. Often served with dumplings.</li>
+                        <li><strong>Jjajangmyeon</strong> <span class="korean">(짜장면)</span>: Korean-Chinese black bean noodles. Sweet and savory sauce made from chunjang (black bean paste). A delivery and jajangmyeon-jip staple.</li>
                     </ul>
 
                     <h4>BBQ & Grilled Dishes (구이)</h4>
@@ -664,13 +692,18 @@
                         <li><strong>Hotteok</strong> <span class="korean">(호떡)</span>: Sweet pancakes filled with brown sugar, nuts, and cinnamon.</li>
                         <li><strong>Bungeoppang</strong> <span class="korean">(붕어빵)</span>: Fish-shaped pastry filled with sweet red bean paste.</li>
                         <li><strong>Gimbap</strong> <span class="korean">(김밥)</span>: Korean-style sushi rolls with vegetables and meat.</li>
+                        <li><strong>Sundae</strong> <span class="korean">(순대)</span>: Korean blood sausage stuffed with glass noodles and barley. Often served with tteokbokki or in soup (sundae-guk).</li>
+                        <li><strong>Mandu</strong> <span class="korean">(만두)</span>: Korean dumplings, steamed (jjin-mandu), fried (gun-mandu), or in soup (mandu-guk). Fillings vary from pork to kimchi.</li>
+                        <li><strong>Gyeran-ppang</strong> <span class="korean">(계란빵)</span>: Egg bread, a warm street snack with a whole egg baked into sweet bread.</li>
                     </ul>
 
                     <h4>Drinking Food (안주)</h4>
                     <ul>
                         <li><strong>Korean Fried Chicken</strong> <span class="korean">(치킨)</span>: Double-fried for extra crispiness, various sauces available.</li>
-                        <li><strong>Pajeon</strong> <span class="korean">(파전)</span>: Savory pancake with green onions, seafood, or kimchi.</li>
+                        <li><strong>Pajeon</strong> <span class="korean">(파전)</span>: Savory pancake with green onions, seafood, or kimchi. Haemul-pajeon (seafood pancake) is especially popular.</li>
                         <li><strong>Budae Jjigae</strong> <span class="korean">(부대찌개)</span>: "Army stew" featuring American military base ingredients like spam and hot dogs, mixed with Korean ingredients.</li>
+                        <li><strong>Jokbal</strong> <span class="korean">(족발)</span>: Braised pig's feet, sliced thin and served with salted shrimp sauce. Classic late-night drinking food.</li>
+                        <li><strong>Tangsuyuk</strong> <span class="korean">(탕수육)</span>: Korean-Chinese sweet and sour pork. Crispy battered pork with tangy sauce, served with jjajangmyeon.</li>
                     </ul>
 
                     <h3 id="drinks">Drinks</h3>
@@ -804,6 +837,9 @@
                 'hannam': '한남 Hannam',
                 'namsan': '남산 Namsan',
                 'yeouido': '여의도 Yeouido',
+                'itaewon': '이태원 Itaewon',
+                'myeongdong': '명동 Myeongdong',
+                'songpa': '송파 Songpa',
                 'yeongdeungpo': '영등포 Yeongdeungpo',
                 'banpo': '반포 Banpo',
                 'euljiro': '을지로 Euljiro',
@@ -834,7 +870,10 @@
                 'sangam': 'Digital Media City, Seoul\'s high-tech hub housing major broadcasting stations (MBC, KBS, SBS) and IT companies. Built for the 2002 World Cup, featuring the World Cup Stadium and modern urban planning.',
                 'seoul-station': 'The area around Seoul\'s main train station, a gateway for KTX high-speed rail. Features the old Seoul Station building (now a cultural center) and Namdaemun Market nearby.',
                 'bukhansan': 'National park on Seoul\'s northern edge, offering granite peaks and Buddhist temples within city limits. One of the world\'s most visited national parks, with trails ranging from easy walks to serious climbs.',
-                'sinsa': 'Upscale neighborhood known for Garosu-gil ("Tree-lined Street"), a trendy avenue of boutiques, cafes, and galleries. Popular for fashion, beauty, and people-watching.'
+                'sinsa': 'Upscale neighborhood known for Garosu-gil ("Tree-lined Street"), a trendy avenue of boutiques, cafes, and galleries. Popular for fashion, beauty, and people-watching.',
+                'itaewon': 'Seoul\'s most international neighborhood. Originally developed around the US military base, now known for diverse cuisine from every continent, craft beer bars, vintage shopping, and LGBTQ+ friendly Homo Hill. Adjacent Gyeongnidan-gil offers trendy cafes and restaurants.',
+                'myeongdong': 'Korea\'s premier shopping district, packed with K-beauty stores, international brands, and street food. Tourist-heavy but essential for cosmetics shopping. Home to Myeongdong Cathedral, Korea\'s oldest Catholic church.',
+                'songpa': 'A large district in southeast Seoul containing Olympic Park, Lotte World, and upscale residential areas around Seokchon Lake. Major venue for K-pop concerts and sporting events.'
             };
 
             districtSpans.forEach(span => {
