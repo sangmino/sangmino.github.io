@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>People - Simon's Recommendations</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Newsreader:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-brand-primary: #6F7F99;
+            --color-brand-hover: #5A6675;
+            --color-bg-paper: #F9F9F5;
+            --color-bg-surface: #F2F0E8;
+            --color-text-main: #2A2F36;
+            --color-text-muted: #666A70;
+            --color-border-subtle: #E0DFD5;
+            --font-serif: 'Newsreader', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--color-bg-paper);
+            color: var(--color-text-main);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        nav {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--color-border-subtle);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--color-text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        nav a:hover {
+            color: var(--color-brand-primary);
+        }
+
+        .author-info {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        header {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+
+        h1 {
+            font-family: var(--font-serif);
+            font-size: 2.5rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--color-text-muted);
+            font-size: 1.05rem;
+        }
+
+        .people {
+            padding: 48px 0;
+        }
+
+        .people-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .person-card {
+            display: block;
+            background: var(--color-bg-surface);
+            border: 1px solid var(--color-border-subtle);
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+            padding: 24px;
+        }
+
+        .person-card:hover {
+            border-color: var(--color-brand-primary);
+            transform: translateY(-2px);
+        }
+
+        .person-card h3 {
+            font-family: var(--font-serif);
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .person-card .role {
+            color: var(--color-brand-primary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+
+        .person-card p {
+            color: var(--color-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .category {
+            margin-bottom: 48px;
+        }
+
+        .category:last-child {
+            margin-bottom: 0;
+        }
+
+        .category h2 {
+            font-family: var(--font-serif);
+            font-size: 1.5rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--color-border-subtle);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <span class="author-info">Simon Oh | oh@gsb.columbia.edu</span>
+            <a href="../index.html">Back to Recommendations</a>
+        </nav>
+
+        <header>
+            <h1>People</h1>
+            <p class="subtitle">People who are hard to substitute.</p>
+        </header>
+
+        <section class="people">
+            <div class="category">
+                <h2>Podcasters</h2>
+                <div class="people-grid">
+                    <a href="https://www.acquired.fm/" target="_blank" class="person-card">
+                        <h3>Ben Gilbert & David Rosenthal</h3>
+                        <div class="role">Acquired Podcast</div>
+                        <p>Deep-dive podcast on company histories and business strategy. Episodes are meticulously researched, often running 3+ hours.</p>
+                    </a>
+                </div>
+            </div>
+
+            <div class="category">
+                <h2>Writers</h2>
+                <div class="people-grid">
+                    <a href="https://michaellewiswrites.com/" target="_blank" class="person-card">
+                        <h3>Michael Lewis</h3>
+                        <div class="role">Author</div>
+                        <p>Narrative nonfiction writer known for Liar's Poker, Moneyball, The Big Short, and Flash Boys. Unmatched ability to make complex financial topics accessible.</p>
+                    </a>
+
+                    <a href="https://paulgraham.com/" target="_blank" class="person-card">
+                        <h3>Paul Graham</h3>
+                        <div class="role">Essayist, Y Combinator Co-founder</div>
+                        <p>Essays on startups, programming, and ideas. His writing on doing what you love, wealth creation, and startup strategy shaped a generation of founders.</p>
+                    </a>
+
+                    <a href="https://www.bloomberg.com/opinion/authors/ARbTQlRLRjE/matthew-s-levine" target="_blank" class="person-card">
+                        <h3>Matt Levine</h3>
+                        <div class="role">Bloomberg Opinion Columnist</div>
+                        <p>Daily newsletter on finance, law, and corporate absurdity. Former Goldman banker and lawyer who makes securities regulation genuinely entertaining.</p>
+                    </a>
+
+                    <a href="https://kk.org/" target="_blank" class="person-card">
+                        <h3>Kevin Kelly</h3>
+                        <div class="role">Founding Editor of Wired</div>
+                        <p>Technologist and writer exploring the intersection of technology, culture, and human flourishing. Known for "1,000 True Fans" and annual birthday wisdom lists.</p>
+                    </a>
+
+                    <a href="https://marginalrevolution.com/" target="_blank" class="person-card">
+                        <h3>Tyler Cowen</h3>
+                        <div class="role">Economist, George Mason University</div>
+                        <p>Prolific blogger and polymath. Marginal Revolution covers economics, culture, food, and ideas with relentless curiosity. Also hosts Conversations with Tyler.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
